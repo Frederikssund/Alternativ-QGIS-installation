@@ -60,15 +60,15 @@ Rettelserne i "qgis.bat" samt brugen af den. tilføjede fil "qgis-prepare.bat" b
 9. (Gen)-etablér alle opsætninger. Dette kan være en større opgave, da "QGIS2.ini" pt. kun indeholder et absolut minimum af standard indstillinger (Der er ikke taget noget med fra registry): Så opsætning omfatter bl.a. installation af plugins, opsætning af alle bruger preferencer mht. digitalisering, snap, selektion osv. osv. Og ikke mindst: For at processing til at fungere korrekt, skal man under options for processing angive hvor mapperne for hhv. GRASS, SAGA, ORFEUS osv er placeret. Gå ikke videre til næste punkt, før du har din "perfekte" opsætning af QGIS kørende!!
 
 10. Tilret slutteligt "qgis-start.bat" med følgende
-   Linie:
-   ```
-   call "%OSGEO4W_ROOT%\bin\qgis-prepare.bat"
-   ```
-   rettes til:
-   ```
-   call "%OSGEO4W_ROOT%\bin\qgis-prepare.bat" RUN
-   ```
-   Og slet evt. den originale qgis.bat, således en bruger ikke kommer til at bruge den af vanvare.
+    Linie:
+    ```
+    call "%OSGEO4W_ROOT%\bin\qgis-prepare.bat"
+    ```
+    rettes til:
+    ```
+    call "%OSGEO4W_ROOT%\bin\qgis-prepare.bat" RUN
+    ```
+    Og slet evt. den originale qgis.bat, således en bruger ikke kommer til at bruge den af vanvare.
 
 #####RUN fase
 
@@ -79,7 +79,7 @@ Rettelserne i "qgis.bat" samt brugen af den. tilføjede fil "qgis-prepare.bat" b
 3. Opstartfilen vil herefter automatisk oprette brugermappen, etablere en genvej på skrivebordet og oprette en fil-association mellem .qgs filer og den nyinstallerede qgis.
 
 4. Ved efterfølgende kald vil QGIS starte almindeligt. 
-Funktionerne beskrevet i pkt. 3 & 4 udføres i script "qgis-prepare.bat". Man kan evt. studere denne, hvis man ønsker et dybere kendskab til funktionaliteten.
+Funktionerne beskrevet i pkt. 3 & 4 udføres i script "qgis-prepare.bat". Man kan evt. studere dette, hvis man ønsker et dybere kendskab til funktionaliteten.
 
 
 ### Alternative installationer
@@ -87,23 +87,23 @@ Funktionerne beskrevet i pkt. 3 & 4 udføres i script "qgis-prepare.bat". Man ka
 Udgaven af filen "qgis-prepare.bat", som forefindes på GitHub, vil placere brugermappen i en undermappe ".qgis_214" til brugerens hjemmemappe, f.eks. "C:\Users\bvtho\.qgis_214" hvis brugerinitialer er "bvtho" på en Windows7 baseret pc. Dette er meget tæt på den originale standard placering, hvor mappen hedder ".qgis2"
 
 Det er muligt at benytte andre placeringer ved at rette på en enkelt linie i "qgis-prepare.bat". Find linien:
-```
-REM Path to user directory (with no trailing backslash).. only used in RUN mode
-set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
-```
+    ```
+    REM Path to user directory (with no trailing backslash).. only used in RUN mode
+    set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
+    ```
 og tilpas "%USERPROFILE%\\.qgis_214" til det ønskede.
 
 #### Use Case: Installation af QGIS på en fremmed kursus-pc, hvortil man ikke har "Local Admin" privilegier.
 
-Dette kan gennemføres uden rettelser af "qgis-prepare,bat" filen. Man skal blot kopiere QGIS program-mappen til en placering, hvor man altid har skrive rettigheder, f.eks. "temp" mappen eller "Dokumenter"
+Dette kan gennemføres uden rettelser af "qgis-prepare,bat" filen. Man skal blot kopiere QGIS program-mappen til en placering, hvor en alm. bruger har skrive rettigheder, f.eks. "temp" mappen eller "Dokumenter"
 
 #### Use Case: Central installation af QGIS på et netværksdrev
 
-I stedet for at placere QGIS program mappen på et lokalt drev på brugerens pc kan man placere denne mappe på en netværksbaseret drev, f.eks. "x:\\programmer\\qgis". Resten af processen er uændret
+I stedet for at placere QGIS program mappen på et lokalt drev på brugerens pc kan man placere denne mappe på en netværksbaseret drev, f.eks. "x:\\programmer\\qgis". Resten af processen er uændret, QGIS skriver intet til program-mappen; denne kan derfor deles af mange brugere. Den eneste ulempe er enevt, længere opstartstid
 
 #### Use Case: Installation af QGIS på CITRIX
 
-På de fleste CITRIX installationer har de enkelte brugere en personlig net baseret mappe, f.eks. "M:\personlig". Så i stedet for at placere QGIS brugermappen på en for CITRIX serveren lokal drev kan man placere brugermappen på brugerens personlige drev. Hedder brugerens personlige drev "M:\\personlig gøres følgende:
+På de fleste CITRIX installationer har de enkelte brugere en personlig net baseret mappe, f.eks. "M:\personlig". Så i stedet for at placere QGIS brugermappen på en for CITRIX serveren lokal drev kan man placere brugermappen på brugerens personlige drev. Hedder brugerens personlige drev "M:\\personlig" gøres følgende:
 
 I "qgis-prepare.bat" rettes linien:
 ```
