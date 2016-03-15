@@ -94,11 +94,30 @@ set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
 og tilpas "%USERPROFILE%\\.qgis_214" til det ønskede.
 
 #### Use Case: Installation af QGIS på en fremmed kursus-pc, hvortil man ikke har "Local Admin" privilegier.
-Dette kan gennemføres uden rettelser af "qgis-prepare,bat" filen. Man skal blot kopiere QGIS program-mappen til en placering, hvor man altid har skrive rettigheder, f.eks. "temp" mappe eller "Dokumenter"
+
+Dette kan gennemføres uden rettelser af "qgis-prepare,bat" filen. Man skal blot kopiere QGIS program-mappen til en placering, hvor man altid har skrive rettigheder, f.eks. "temp" mappen eller "Dokumenter"
 
 #### Use Case: Central installation af QGIS på et netværksdrev
 
-I stedet for at placere QGIS program mappen på et lokalt drev på brugerens pc kan man placere denne mappe på en netværksbaseret drev, f.eks. "x:\\programmer\\qgis214
+I stedet for at placere QGIS program mappen på et lokalt drev på brugerens pc kan man placere denne mappe på en netværksbaseret drev, f.eks. "x:\\programmer\\qgis". Resten af processen er uændret
+
+#### Use Case: Installation af QGIS på CITRIX
+
+På de fleste CITRIX installationer har de enkelte brugere en personlig net baseret mappe, f.eks. "M:\personlig". Så i stedet for at placere QGIS brugermappen på en for CITRIX serveren lokal drev kan man placere brugermappen på brugerens personlige drev. Hedder brugerens personlige drev "M:\\personlig gøres følgende:
+
+I "qgis-prepare.bat" rettes linien:
+```
+REM Path to user directory (with no trailing backslash).. only used in RUN mode
+set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
+```
+til: 
+```
+REM Path to user directory (with no trailing backslash).. only used in RUN mode
+set "QGIS_UDIR=M:\personlig\.qgis_214"
+```
+
+Og QGIS program mappen placeres samme med de øvrige programmer, som udstilles via CITRIX.
+
 
 
 
