@@ -91,7 +91,7 @@ Det er muligt at benytte andre placeringer ved at rette på en enkelt linie i "q
 REM Path to user directory (with no trailing backslash).. only used in RUN mode
 set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
 ```
-og tilpas "%USERPROFILE%\.qgis_214" til det ønskede.
+og tilpas "%USERPROFILE%\\.qgis_214" til det ønskede.
 
 #### Use Case: Central installation af QGIS på et netværksdrev
 
