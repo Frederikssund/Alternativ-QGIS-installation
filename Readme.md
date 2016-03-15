@@ -84,7 +84,7 @@ Funktionerne beskrevet i pkt. 3 & 4 udføres i script "qgis-prepare.bat". Man ka
 
 ### Alternative installationer
 
-Udgaven af filen "qgis-prepare.bat", som forefindes på GitHub, vil placere brugermappen i en undermappe ".qgis_214" til brugeren hjemmemappe, f.eks. "C:\Users\bvtho\.qgis_214" hvis brugerinitialer er "bvtho" på en Windows7 baseret pc. Dette er meget tæt på den originale placering, hvor mappen hed ".qgis2"
+Udgaven af filen "qgis-prepare.bat", som forefindes på GitHub, vil placere brugermappen i en undermappe ".qgis_214" til brugerens hjemmemappe, f.eks. "C:\Users\bvtho\.qgis_214" hvis brugerinitialer er "bvtho" på en Windows7 baseret pc. Dette er meget tæt på den originale standard placering, hvor mappen hedder ".qgis2"
 
 Det er muligt at benytte andre placeringer ved at rette på en enkelt linie i "qgis-prepare.bat". Find linien:
 ```
@@ -93,9 +93,12 @@ set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
 ```
 og tilpas "%USERPROFILE%\\.qgis_214" til det ønskede.
 
+#### Use Case: Installation af QGIS på en fremmed kursus-pc, hvortil man ikke har "Local Admin" privilegier.
+Dette kan gennemføres uden rettelser af "qgis-prepare,bat" filen. Man skal blot kopiere QGIS program-mappen til en placering, hvor man altid har skrive rettigheder, f.eks. "temp" mappe eller "Dokumenter"
+
 #### Use Case: Central installation af QGIS på et netværksdrev
 
-I stedet for at placere QGIS program mappen på et lokalt drev på brugerens pc kan man placere denne mappe på en netværksbaseret drev. Det 
+I stedet for at placere QGIS program mappen på et lokalt drev på brugerens pc kan man placere denne mappe på en netværksbaseret drev, f.eks. "x:\\programmer\\qgis214
 
 
 
