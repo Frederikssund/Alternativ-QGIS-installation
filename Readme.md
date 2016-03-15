@@ -16,23 +16,24 @@ Ulemper ved metoden:
 
 Ved den normale installation placeres dele af QGIS installationen på forskellige steder på pc'en:
 
-- Programdele placeres i en program-mappe, f.eks under "C:\Program Files", f.eks. "C:\Program Files\QGIS Lyon" for QGIS ver. 2.12. Denne program mappe indeholder selve hovedprogrammet, alle underprogrammer og muligvis en række eksterne programmer såsom GRASS, SAGA, ORFEUS o.lign. Mappen indeholder ingen opsætningsparametre eller brugerspecifikke data. Program-mappens placering er afhængig installationsmetode (Hvis du ikke kender de forskellige installationsmetoder, kan du læse QGIS.ORG web-siden for download af programmet: [http://qgis.org/en/site/forusers/download.html](http://qgis.org/en/site/forusers/download.html))
-- En mappe ".qgis2", normalt placeret i brugerens hjemmemappe, f.eks "C:\Brugere\bvt\.qgis2" for bruger "bvt" af pc'en. Denne mappe indeholder eks. mapper med plads til temporære data fra "processing", farve paletter, skabeloner til projekt styring, samt alle plugins installeret af bruger (og administrator). Denne mappe er personlig for den enkelte bruger.
-- En eller flere "grene" i registry, primært "HKEY_CURRENT_USER\Software\QGIS". Registry indeholder alle opsætnings parametre for QGIS.
+- Programdele placeres i en program-mappe - "C:\Program Files", f.eks. "C:\Program Files\QGIS Lyon" for QGIS ver. 2.12. Denne program mappe indeholder selve hovedprogrammet, alle underprogrammer og muligvis en række eksterne programmer såsom GRASS, SAGA, ORFEUS o.lign. Mappen indeholder ingen opsætningsparametre eller brugerspecifikke data. Program-mappens placering er afhængig af installationsmetode (Hvis du ikke kender de forskellige installationsmetoder, kan du læse QGIS.ORG web-siden for download af programmet: [http://qgis.org/en/site/forusers/download.html](http://qgis.org/en/site/forusers/download.html))
+- En mappe ".qgis2", normalt placeret i brugerens hjemmemappe, f.eks "C:\Brugere\bvtho\.qgis2" for bruger "bvtho" af pc'en. Denne mappe indeholder eks. mapper med plads til temporære data fra "processing", farve paletter, skabeloner til projekt styring, samt alle non-"core" plugins. Denne mappe er personlig for den enkelte bruger.
+- En eller flere "grene" i registry, primært "HKEY_CURRENT_USER\Software\QGIS". Registry indeholder alle opsætningsparametre for QGIS.
 
 Metoden går ud på at få udskiftet placeringen af opsætningsparametre fra registry til en fil placeret i brugermappen .qgis2 (".qgis2\QGIS\QGIS2.ini")
 
 Dette sker i to faser:
-- "PREPARE" fasen, hvor GIS administrator forbereder en alm QGIS installation, således den er klar til installation hos slutbruger.
+- "PREPARE" fasen, hvor GIS administrator forbereder en alm. QGIS installation, således den er klar til installation hos slutbruger.
 
-- "RUN" fasen, hvor Den tilrettede program mappe kopieres ud til slutbruger, og slutbruger foretager den endelige installation ved første opstart af QGIS på hans/hendes pc.
+- "RUN" fasen, hvor den tilrettede program-mappe kopieres ud til slutbruger, hvorefter slutbruger foretager den endelige installation ved første opstart af QGIS på hans/hendes pc.
 
-For at få QGIS til at læse sine opsætningsparametre gøres følgende:
+For at få QGIS til at skrive/læse sine opsætningsparametre fra en ini-fil i stedet for registry gøres følgende:
 
 #####PREPARE fase
 
-1. Installér en ordinær udgave af QGIS på din pc. Den bør **ikke** installeres i "Program Files" eller "Programmer", fordi der løbende vil blive tilføjet nye filer og tilrettet eksisterende filer i opstart
-1. Find placering af opstartsfil "qgis.bat" (Filen *kan* have et andet navn, afhængig af version og installationsmetode)
+1. Installér en ordinær udgave af QGIS på din pc. Den bør **ikke** installeres i "Program Files" eller "Programmer", fordi der løbende vil blive tilføjet nye filer og tilrettet eksisterende filer i "PREPARE" fasen. Standard sikkerhedsregler i "Progam Files" kan genere eller helt forhindre denne proces.
+
+1. Find placering af opstartsfilen "qgis.bat" (Filen *kan* have et andet navn, afhængig af version og installationsmetode)
 QGIS opstartes via denne opstartsfil, som forbereder en række parametre og afsluttes med den egentlige opstart af QGIS. Opstartsfilen er placeret i mappe "bin" under program-mappen, f.eks "C:\Program Files\QGIS Lyon\bin\qgis.bat"
 
 2. Lav en kopi af "qgis.bat" med navn "qgis-start.bat" og placér filen i samme mappe som originalen.
@@ -54,9 +55,9 @@ start "QGIS" /B "%OSGEO4W_ROOT%"\bin\qgis-bin.exe --configpath "%QGIS_UDIR%" %*
 7. Kopier "qgis-prepare.bat" fra github distributionsmappen til samme mappe som qgis-start.bat.
 
 8. Start QGIS ved fra stifinder at dobbeltklikke på "**qgis-start.bat**" (**ikke** qgis.bat). 
-Rettelserne i "qgis.bat" samt brugen af den tilføjede fil "qgis-prepare.bat" betyder, at der 1) oprettes en ny bruger-mappe i qgis program-mappen ved navn ".qgis- 
+Rettelserne i "qgis.bat" samt brugen af den. tilføjede fil "qgis-prepare.bat" betyder, at der 1) oprettes en ny bruger-mappe i qgis program-mappen ved navn ".qgis-template" og 2) Alle opsætningsparametre gemmes i en ini-fil  "QGIS2.ini" placeret i en undermappe til brugermappe ".qgis-template".
 
-9. (Gen)-etablér alle opsætninger. Dette kan være en større opgave, da QGIS2.ini pt. kun indeholder et absolut minimum af stadard indstillinger (Der er ikke taget noget med fra registry): Installation af plugins, opsætning af alle bruger preferencer mht. digitalisering, snap, selektion osv. osv. Og ikke mindst: For at processing til at fungere korrekt, skal man under options for processing angive hvor mapperne for hhv. GRASS, SAGA, ORFEUS osv er placeret. Gå ikke videre til punkt 10, før du har din "perfekte" opsætning af QGIS kørende!!
+9. (Gen)-etablér alle opsætninger. Dette kan være en større opgave, da "QGIS2.ini" pt. kun indeholder et absolut minimum af standard indstillinger (Der er ikke taget noget med fra registry): Så opsætning omfatter bl.a. installation af plugins, opsætning af alle bruger preferencer mht. digitalisering, snap, selektion osv. osv. Og ikke mindst: For at processing til at fungere korrekt, skal man under options for processing angive hvor mapperne for hhv. GRASS, SAGA, ORFEUS osv er placeret. Gå ikke videre til punkt 10, før du har din "perfekte" opsætning af QGIS kørende!!
 
 10. Tilret slutteligt "qgis-start.bat" med følgende
 Linie:
@@ -71,13 +72,14 @@ Og slet evt. den originale qgis.bat, således en bruger ikke kommer til at bruge
 
 #####RUN fase
 
-1. Nu er du klar til at distibuere - Kopiér den tilrettede QGIS program mappe ud på brugerens pc
+1. Nu er du klar til at distibuere... Kopiér den tilrettede QGIS program mappe ud på brugerens pc
 
 2. Bed brugeren om at starte QGIS ved at dobbeltklikke på [QGIS programmappe]\bin\qgis-start.bat
 
-3. Opstartfilen vil herefter automatisk oprette brugermappen, etablere en genvej på skrivebordet og oprette en fil-association melle .qgs filer og den nyinstallerede qgis.
+3. Opstartfilen vil herefter automatisk oprette brugermappen, etablere en genvej på skrivebordet og oprette en fil-association mellem .qgs filer og den nyinstallerede qgis.
 
-4. Ved efterfølgende kald vil QGIS starte almindeligt.
+4. Ved efterfølgende kald vil QGIS starte almindeligt. 
+Funktionerne beskrevet i pkt. 3 & 4 udføres i script "qgis-prepare.bat". Man kan evt. studere denne, hvis man ønsker et dybere kendskab til funktionaliteten.
 
 
 ### Alternative installationer
