@@ -41,15 +41,15 @@ QGIS opstartes via denne opstartsfil, som forbereder en række parametre og afsl
 3. "qgis-start.bat" redigeres vha. en simpel teksteditor, f.eks notepad:
 
 4. Sidste linie i filen har følgende udseende:
-```
-start "QGIS" /B "%OSGEO4W_ROOT%"\bin\qgis-bin.exe %*
-```
+   ```
+   start "QGIS" /B "%OSGEO4W_ROOT%"\bin\qgis-bin.exe %*
+   ```
 
 5. Tilføj ny linie og tilret eksisterende til følgende udseende:
-```
-call "%OSGEO4W_ROOT%\bin\qgis-prepare.bat"
-start "QGIS" /B "%OSGEO4W_ROOT%"\bin\qgis-bin.exe --configpath "%QGIS_UDIR%" %*
-```
+   ```
+   call "%OSGEO4W_ROOT%\bin\qgis-prepare.bat"
+   start "QGIS" /B "%OSGEO4W_ROOT%"\bin\qgis-bin.exe --configpath "%QGIS_UDIR%" %*
+   ```
 6. Gem den rettede fil.
 
 7. Kopier "qgis-prepare.bat" fra github distributionsmappen til samme mappe som qgis-start.bat.
@@ -57,18 +57,18 @@ start "QGIS" /B "%OSGEO4W_ROOT%"\bin\qgis-bin.exe --configpath "%QGIS_UDIR%" %*
 8. Start QGIS ved fra stifinder at dobbeltklikke på "**qgis-start.bat**" (**ikke** qgis.bat). 
 Rettelserne i "qgis.bat" samt brugen af den. tilføjede fil "qgis-prepare.bat" betyder, at der 1) oprettes en ny bruger-mappe i qgis program-mappen ved navn ".qgis-template" og 2) Alle opsætningsparametre gemmes i en ini-fil  "QGIS2.ini" placeret i en undermappe til brugermappe ".qgis-template".
 
-9. (Gen)-etablér alle opsætninger. Dette kan være en større opgave, da "QGIS2.ini" pt. kun indeholder et absolut minimum af standard indstillinger (Der er ikke taget noget med fra registry): Så opsætning omfatter bl.a. installation af plugins, opsætning af alle bruger preferencer mht. digitalisering, snap, selektion osv. osv. Og ikke mindst: For at processing til at fungere korrekt, skal man under options for processing angive hvor mapperne for hhv. GRASS, SAGA, ORFEUS osv er placeret. Gå ikke videre til punkt 10, før du har din "perfekte" opsætning af QGIS kørende!!
+9. (Gen)-etablér alle opsætninger. Dette kan være en større opgave, da "QGIS2.ini" pt. kun indeholder et absolut minimum af standard indstillinger (Der er ikke taget noget med fra registry): Så opsætning omfatter bl.a. installation af plugins, opsætning af alle bruger preferencer mht. digitalisering, snap, selektion osv. osv. Og ikke mindst: For at processing til at fungere korrekt, skal man under options for processing angive hvor mapperne for hhv. GRASS, SAGA, ORFEUS osv er placeret. Gå ikke videre til næste punkt, før du har din "perfekte" opsætning af QGIS kørende!!
 
 10. Tilret slutteligt "qgis-start.bat" med følgende
-Linie:
-```
-call "%OSGEO4W_ROOT%\bin\qgis-prepare.bat"
-```
-rettes til:
-```
-call "%OSGEO4W_ROOT%\bin\qgis-prepare.bat" RUN
-```
-Og slet evt. den originale qgis.bat, således en bruger ikke kommer til at bruge den af vanvare.
+   Linie:
+   ```
+   call "%OSGEO4W_ROOT%\bin\qgis-prepare.bat"
+   ```
+   rettes til:
+   ```
+   call "%OSGEO4W_ROOT%\bin\qgis-prepare.bat" RUN
+   ```
+   Og slet evt. den originale qgis.bat, således en bruger ikke kommer til at bruge den af vanvare.
 
 #####RUN fase
 
@@ -117,6 +117,12 @@ set "QGIS_UDIR=M:\personlig\.qgis_214"
 ```
 
 Og QGIS program mappen placeres samme med de øvrige programmer, som udstilles via CITRIX.
+
+#### Use Case: Installation af 2 forskellige QGIS versioner på samme pc med hver sin bruger opsætning
+
+Denne opsætning kan benyttes, hvis man har en "drift" opsætning, som ikke må ænxdres, Og man samtidig ønsker ta have en anden opsætning, f.eks. til test formål.
+
+1. Lav en QGIS installation 
 
 
 
