@@ -7,7 +7,7 @@ Ved at fjerne afhængigheden af registry for QGIS opnås en række fordele:
 - En lokal installation kan reduceres til at kopiere to mapper til pc'en og oprette en genvej til QGIS på brugerens skrivebord. Man behøver altså ikke at generere komplicerede msi scripts til installationen.
 - Alternative installationer, såsom placering af QGIS programmet på et net-drev eller tilpasning til et Citrix miljø er trivielle tilretninger af den føromtalte, lokale installation.
 - Alle opsætningsparametre samles i en ini fil, som er nem at inspicere/rette vha. en simpel tekst-editor.
-- Ved at placercere program-mappe *uden* for "c:\\Program Files" eller tilsvarende kan man gennemføre installationen uden "Local Admin" rettigheder. Dette kan benyttes f.eks. af QGIS instruktører til en hurtig installation af QGIS på et større antal pc'ere, som instruktøren kun har alm. bruger-rettigheder til. Eller lave en "parallel" installation QGIS, som alle skal have den eksakt samme opsætning.
+- Ved at placercere program-mappe *uden* for "C:\\Program Files" eller tilsvarende kan man gennemføre installationen uden "Local Admin" rettigheder. Dette kan benyttes f.eks. af QGIS instruktører til en hurtig installation af QGIS på et større antal pc'ere, som instruktøren kun har alm. bruger-rettigheder til. Eller lave en "parallel" installation QGIS, som alle skal have den eksakt samme opsætning.
 
 Ulemper ved metoden:
 
