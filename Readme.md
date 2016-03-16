@@ -7,7 +7,7 @@ Ved at fjerne afhængigheden af registry for QGIS opnås en række fordele:
 - En lokal installation kan reduceres til at kopiere to mapper til pc'en og oprette en genvej til QGIS på brugerens skrivebord. Man behøver altså ikke at generere komplicerede msi scripts til installationen.
 - Alternative installationer, såsom placering af QGIS programmet på et net-drev eller tilpasning til et Citrix miljø er trivielle tilretninger af den føromtalte, lokale installation.
 - Alle opsætningsparametre samles i en ini fil, som er nem at inspicere/rette vha. en simpel tekst-editor.
-- Ved at placercere program-mappe *uden* for "C:\\Program Files" eller tilsvarende kan man gennemføre installationen uden "Local Admin" rettigheder. Dette kan benyttes f.eks. af QGIS instruktører til en hurtig installation af QGIS på et større antal pc'ere, som instruktøren kun har alm. bruger-rettigheder til. Eller lave en "parallel" installation QGIS, som alle skal have den eksakt samme opsætning.
+- Ved at placercere program-mappe *uden* for "C:\\Program Files" eller tilsvarende kan man gennemføre installationen uden "Local Admin" rettigheder. Dette kan benyttes f.eks. af QGIS instruktører til en hurtig installation af QGIS på et større antal pc'ere, som instruktøren kun har alm. bruger-rettigheder til. Eller lave en installation af QGIS på mange pc'er som alle har den eksakt samme opsætning.
 
 Ulemper ved metoden:
 
@@ -19,7 +19,7 @@ Ulemper ved metoden:
 Ved den normale installation placeres dele af QGIS installationen på forskellige steder på pc'en:
 
 - Programdele placeres i en program-mappe - "C:\Program Files", f.eks. "C:\Program Files\QGIS Lyon" for QGIS ver. 2.12. Denne program mappe indeholder selve hovedprogrammet, alle underprogrammer og muligvis en række eksterne programmer såsom GRASS, SAGA, ORFEUS o.lign. Mappen indeholder ingen opsætningsparametre eller brugerspecifikke data. Program-mappens placering er afhængig af installationsmetode (Hvis du ikke kender de forskellige installationsmetoder, kan du læse QGIS.ORG web-siden for download af programmet: [http://qgis.org/en/site/forusers/download.html](http://qgis.org/en/site/forusers/download.html))
-- En mappe ".qgis2", normalt placeret i brugerens hjemmemappe, f.eks "C:\Brugere\bvtho\.qgis2" for bruger "bvtho" af pc'en. Denne mappe indeholder eks. mapper med plads til temporære data fra "processing", farve paletter, skabeloner til projekt styring, samt alle non-"core" plugins. Denne mappe er personlig for den enkelte bruger.
+- En mappe ".qgis2", normalt placeret i brugerens hjemmemappe, f.eks "C:\Brugere\bvtho\.qgis2" for bruger "bvtho" af pc'en. Denne mappe indeholder bl.a. mapper med plads til temporære data fra "processing", farve paletter, skabeloner til projekt styring, samt alle non-"core" plugins. Denne mappe er personlig for den enkelte bruger.
 - En eller flere "grene" i registry, primært "HKEY_CURRENT_USER\Software\QGIS". Registry indeholder alle opsætningsparametre for QGIS.
 
 Metoden går ud på at få udskiftet placeringen af opsætningsparametre fra registry til en fil placeret i brugermappen .qgis2 (".qgis2\QGIS\QGIS2.ini")
