@@ -103,7 +103,9 @@ I stedet for at placere QGIS program mappen på et lokalt drev på brugerens pc 
 
 #### Use Case: Installation af QGIS på CITRIX
 
-På de fleste CITRIX installationer har de enkelte brugere en personlig net baseret mappe, f.eks. "M:\personlig". Så i stedet for at placere QGIS brugermappen på en for CITRIX serveren lokal drev kan man placere brugermappen på brugerens personlige drev. Hedder brugerens personlige drev "M:\\personlig" gøres følgende:
+På de fleste CITRIX installationer har de enkelte brugere en personlig net baseret mappe, f.eks. "M:\personlig". Så i stedet for at placere QGIS brugermappen på et for CITRIX serveren lokalt drev kan man placere brugermappen på brugerens personlige drev. Da installationen ikke gør brug af registry indeholder den enkelte CITRIX server ingen QGIS opsætningsdata, som er brugerrelateret - kun programmer og hjælpefiler. Dette forsimpler og smidiggør signifikant QGIS installationen i en CITRIX serverfarm - miljø.
+
+Hedder brugerens personlige drev "M:\\personlig" gøres følgende:
 
 I "qgis-prepare.bat" rettes linien:
 ```
@@ -120,9 +122,22 @@ Og QGIS program mappen placeres samme med de øvrige programmer, som udstilles v
 
 #### Use Case: Installation af 2 forskellige QGIS versioner på samme pc med hver sin bruger opsætning
 
-Denne opsætning kan benyttes, hvis man har en "drift" opsætning, som ikke må ænxdres, Og man samtidig ønsker ta have en anden opsætning, f.eks. til test formål.
+Man kan have 
 
-1. Lav en QGIS installation 
+- En eksisterende "drift" opsætning af QGIS som ikke må ændres (Vi kalder den QGIS 2.8)
+- Samtidig ønsker at have en alternativ installation (Vikalder den QGIS 2.14)
+- De to installationer må ikke interferere med hinanden, dvs ikke dele opsætning eller plugins.
+
+Dette kan gøres ved følgende (Vi går ud fra, at QGIS 2.8 er standard installeret, dvs. bruger registry og gemmer andre brugerdata i mappe ".qgs2" i brugerens hjemmemappe.  
+
+1. Installér QGIS 2.14 på en "frisk" pc, dvs. uden en eksisterende QGIS installation, som ordinære installation af QGIS 2.14 vil overskrive eller lave andre ændringer på.
+2. Gennemfør "PREPARE" fasen på med denne nye installation, og sørg for, at QGIS brugermappen for QGIS 2.14 **ikke** er ".qgis2" men f.eks. ".qgis214"
+3. Kopier den nye program mappe over på drifts-pc'en, og sørg for at program mappen **ikke** er der samme, som den eksisterende QGIS 2.8.
+
+Ved første opstart af den nye QGIS 2.14 oprettes den nye brugermappe ".qgis214". Den eksisterende brugermappe for QGIS 2.8 bliver ikke berørt. Og da den nye installation ikke benytter registry, vil denne opsætning part af QGIS 2.8 ejheller blive ændret.
+
+Proceessen kan i øvroigt gennemføres med andre versioner/nyere versioner af QGIS. QGIS 2.16/".qgis216", QGIS 2.18/".qgis218" osv.
+
 
 
 
