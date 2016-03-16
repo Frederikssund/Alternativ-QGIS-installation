@@ -92,12 +92,13 @@ Udgaven af filen "qgis-prepare.bat", som forefindes på GitHub, vil placere brug
 
 Det er muligt at benytte andre placeringer ved at rette på en enkelt linie i "qgis-prepare.bat". 
 
-    Find linien:
+Find linien:
     ```
     REM Path to user directory (with no trailing backslash).. only used in RUN mode
     set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
     ```
-    og tilpas "%USERPROFILE%\\.qgis_214" til det ønskede. (%USERPROFILE% er en environment variabel, som peger på brugerense hjemmemappe)
+og tilpas "%USERPROFILE%\\.qgis_214" til det ønskede. (%USERPROFILE% er en environment variabel, som peger på brugerens
+hjemmemappe)
 
 #### Use Case: Installation af QGIS på en fremmed kursus-pc, hvortil man ikke har "Local Admin" privilegier.
 
