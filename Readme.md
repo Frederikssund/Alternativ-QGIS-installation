@@ -63,6 +63,7 @@ Rettelserne i "qgis.bat" samt brugen af den tilføjede fil "qgis-prepare.bat" be
 9. (Gen)-etablér alle opsætninger. Dette kan være en større opgave, da "QGIS2.ini" pt. kun indeholder et absolut minimum af standard indstillinger (Der er ikke taget noget med fra registry): Så opsætning omfatter bl.a. installation af plugins, opsætning af alle bruger preferencer mht. digitalisering, snap, selektion osv. osv. Og ikke mindst: For at processing til at fungere korrekt, skal man under options for processing angive hvor mapperne for hhv. GRASS, SAGA, ORFEUS osv er placeret. Gå ikke videre til næste punkt, før du har din "perfekte" opsætning af QGIS kørende!!
 
 10. Tilret slutteligt "qgis-start.bat" med følgende
+
     Linie:
     ```
     call "%OSGEO4W_ROOT%\bin\qgis-prepare.bat"
