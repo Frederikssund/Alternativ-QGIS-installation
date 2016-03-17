@@ -103,7 +103,7 @@ hjemmemappe)
 
 #### Use Case: Installation af QGIS på en fremmed kursus-pc, hvortil man ikke har "Local Admin" privilegier.
 
-Dette kan gennemføres uden rettelser af "qgis-prepare,bat" filen. Man skal blot kopiere QGIS program-mappen til en placering, hvor en alm. bruger har skrive rettigheder, f.eks. et sted i brugerens hjemme mappe.
+Dette kan gennemføres uden rettelser af "qgis-prepare.bat" filen. Man skal blot kopiere QGIS program-mappen til en placering, hvor en alm. bruger har skrive-rettigheder, f.eks. et sted i brugerens hjemmemappe.
 
 #### Use Case: Central installation af QGIS på et netværksdrev
 
@@ -112,7 +112,7 @@ Da QGIS ikke skriver/opdaterer opsætnings data i program-mappen kan denne deles
 
 #### Use Case: Installation af QGIS på CITRIX
 
-På de fleste CITRIX installationer har de enkelte brugere en personlig net baseret mappe, f.eks. "M:\personlig". Så i stedet for at placere QGIS brugermappen på et for CITRIX serveren lokalt drev kan man placere brugermappen på brugerens personlige drev. Da installationen ikke gør brug af registry indeholder den enkelte CITRIX server ingen QGIS opsætningsdata, som er brugerrelateret - kun programmer og hjælpefiler. Dette forsimpler og smidiggør signifikant QGIS installationen i en CITRIX serverfarm - miljø.
+På de fleste CITRIX installationer har de enkelte brugere en personlig net baseret mappe, f.eks. "M:\personlig". Så i stedet for at placere QGIS brugermappen på et for CITRIX serveren lokalt drev kan man placere brugermappen på brugerens personlige drev. Da installationen ikke gør brug af registry indeholder den enkelte CITRIX server ingen QGIS opsætningsdata, som er brugerrelateret - kun programmer og hjælpefiler. Dette forsimpler og smidiggør signifikant QGIS installationen og den daglige brug i et CITRIX serverfarm - miljø.
 
 Hedder brugerens personlige drev "M:\\personlig" gøres følgende:
 
@@ -135,17 +135,17 @@ Man kan have
 
 - En eksisterende "drift" opsætning af QGIS som ikke må ændres (Vi kalder den QGIS 2.8)
 - Samtidig ønsker at have en alternativ installation (Vi kalder den QGIS 2.14)
-- De to installationer må ikke interferere med hinanden, dvs ikke dele opsætning eller plugins.
+- De to installationer må ikke interferere med hinanden, dvs. hverken dele opsætning eller plugins.
 
-Dette kan gøres ved følgende (Vi går ud fra, at QGIS 2.8 er standard installeret, dvs. bruger registry og gemmer andre brugerdata i mappe ".qgs2" i brugerens hjemmemappe).  
+Dette kan gøres ved følgende (Vi går ud fra, at QGIS 2.8 er standard installeret, dvs. benytter registry og gemmer andre brugerdata i mappe ".qgs2" i brugerens hjemmemappe).  
 
-1. Installér QGIS 2.14 på en "frisk" pc, dvs. uden en eksisterende QGIS installation, som de initiale installation af QGIS 2.14 vil overskrive eller lave andre ændringer på.
-2. Gennemfør "PREPARE" fasen med denne nye installation, og sørg for, at QGIS brugermappen for QGIS 2.14 **ikke** er ".qgis2" men f.eks. ".qgis_214"
-3. Kopier den nye program mappe over på drifts-pc'en, og sørg for at program mappen **ikke** er der samme, som den eksisterende QGIS 2.8.
+1. Installér QGIS 2.14 på en "frisk" pc, dvs. uden en eksisterende QGIS installation, som den initiale installation af QGIS 2.14 vil overskrive eller lave andre ændringer på.
+2. Gennemfør "PREPARE" fasen med denne nye installation, og sørg for at QGIS brugermappen for QGIS 2.14 **ikke** er ".qgis2" men f.eks. ".qgis_214"
+3. Kopier den nye program mappe over på drifts-pc'en, og sørg for at program-mappen **ikke** er der samme, som den eksisterende QGIS 2.8.
 
 Ved første opstart af den nye QGIS 2.14 oprettes den nye brugermappe ".qgis_214". Den eksisterende brugermappe for QGIS 2.8 bliver ikke berørt. Og da den nye installation ikke benytter registry, vil denne opsætningsdel af QGIS 2.8 heller ikke blive ændret.
 
-Processen kan i øvrigt gennemføres med andre versioner/nyere versioner af QGIS. QGIS 2.16/".qgis_216", QGIS 2.18/".qgis_218" osv.
+Processen kan i øvrigt gennemføres med flere versioner/nyere versioner af QGIS. QGIS 2.16/".qgis_216", QGIS 2.18/".qgis_218" osv.
 
 
 
