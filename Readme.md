@@ -91,12 +91,13 @@ Funktionerne beskrevet i pkt. 3 & 4 udføres i script "qgis-prepare.bat". Man ka
 Udgaven af filen "qgis-prepare.bat", som forefindes på GitHub, vil placere brugermappen i en undermappe ".qgis_214" til brugerens hjemmemappe, f.eks. "C:\Users\bvtho\.qgis_214" hvis brugerinitialer er "bvtho" på en Windows7 baseret pc. Dette er meget tæt på den originale standard placering, hvor mappen hedder ".qgis2"
 
 Det er muligt at benytte andre placeringer ved at rette på en enkelt linie i "qgis-prepare.bat". 
-
 Find linien:
+
     ```
     REM Path to user directory (with no trailing backslash).. only used in RUN mode
     set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
     ```
+
 og tilpas "%USERPROFILE%\\.qgis_214" til det ønskede. (%USERPROFILE% er en environment variabel, som peger på brugerens
 hjemmemappe)
 
