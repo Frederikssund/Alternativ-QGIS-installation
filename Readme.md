@@ -110,11 +110,11 @@ Dette kan gennemføres uden rettelser af "qgis-prepare.bat" filen. Man skal blot
 #### Use Case: Central installation af QGIS på et netværksdrev
 
 I stedet for at placere QGIS program mappen på et lokalt drev på brugerens pc kan man placere denne mappe på en netværksbaseret drev, f.eks. "x:\\programmer\\qgis". Resten af installations processen er uændret
-Da QGIS ikke skriver/opdaterer opsætnings data i program-mappen kan denne deles af mange brugere. Den eneste ulempe er en evt. længere opstartstid, fordi netdrevet er langsommere en et lokalt drev.
+Da QGIS ikke skriver/opdaterer opsætnings data i program-mappen kan denne deles af mange brugere. Den eneste ulempe er en evt. længere opstartstid, fordi netdrevet er langsommere end et lokalt drev.
 
 #### Use Case: Installation af QGIS på CITRIX
 
-På de fleste CITRIX installationer har de enkelte brugere en personlig net baseret mappe, f.eks. "M:\personlig". Så i stedet for at placere QGIS brugermappen på et for CITRIX serveren lokalt drev kan man placere brugermappen på brugerens personlige drev. Da installationen ikke gør brug af registry indeholder den enkelte CITRIX server ingen QGIS opsætningsdata, som er brugerrelateret - kun programmer og hjælpefiler. Dette forsimpler og smidiggør signifikant QGIS installationen og den daglige brug i et CITRIX serverfarm - miljø.
+På de fleste CITRIX installationer har de enkelte brugere en personlig net baseret mappe, f.eks. "M:\personlig". Så i stedet for at placere QGIS brugermappen på et for CITRIX serveren lokalt drev kan man placere brugermappen på brugerens personlige drev. Da installationen ikke gør brug af registry indeholder den enkelte CITRIX server herefter ingen QGIS opsætningsdata, som er brugerrelateret - kun programmer og hjælpefiler. Dette forsimpler og smidiggør signifikant QGIS installationen og den daglige brug af QGIS i et CITRIX serverfarm - miljø.
 
 Hedder brugerens personlige drev "M:\\personlig" gøres følgende:
 
@@ -129,20 +129,20 @@ REM Path to user directory (with no trailing backslash).. only used in RUN mode
 set "QGIS_UDIR=M:\personlig\.qgis_214"
 ```
 
-Og QGIS program mappen placeres samme med de øvrige programmer, som udstilles via CITRIX.
+Og QGIS program mappen placeres sammen med de øvrige programmer, som udstilles via CITRIX.
 
 #### Use Case: Installation af 2 forskellige QGIS versioner på samme pc med hver sin bruger opsætning
 
 Man kan have 
 
-- En eksisterende "drift" opsætning af QGIS som ikke må ændres (Vi kalder den QGIS 2.8)
-- Samtidig ønsker at have en alternativ installation (Vi kalder den QGIS 2.14)
-- De to installationer må ikke interferere med hinanden, dvs. hverken dele opsætning eller plugins.
+- En eksisterende "drift" opsætning af QGIS som ikke må ændres (Vi kalder den QGIS 2.8!)
+- Samtidig ønsker at have en alternativ installation (Vi kalder den QGIS 2.14!)
+- De to installationer må ikke interferere med hinanden, dvs. hverken dele bruger-opsætning eller plugins.
 
 Dette kan gøres ved følgende (Vi går ud fra, at QGIS 2.8 er standard installeret, dvs. benytter registry og gemmer andre brugerdata i mappe ".qgs2" i brugerens hjemmemappe).  
 
 1. Installér QGIS 2.14 på en "frisk" pc, dvs. uden en eksisterende QGIS installation, som den initiale installation af QGIS 2.14 vil overskrive eller lave andre ændringer på.
-2. Gennemfør "PREPARE" fasen med denne nye installation, og sørg for at QGIS brugermappen for QGIS 2.14 **ikke** er ".qgis2" men f.eks. ".qgis_214"
+2. Gennemfør "PREPARE" fasen med denne nye installation, og sørg for at QGIS brugermappen for QGIS 2.14 **ikke** bliver ".qgis2" men f.eks. ".qgis_214"
 3. Kopier den nye program mappe over på drifts-pc'en, og sørg for at program-mappen **ikke** er der samme, som den eksisterende QGIS 2.8.
 
 Ved første opstart af den nye QGIS 2.14 oprettes den nye brugermappe ".qgis_214". Den eksisterende brugermappe for QGIS 2.8 bliver ikke berørt. Og da den nye installation ikke benytter registry, vil denne opsætningsdel af QGIS 2.8 heller ikke blive ændret.
