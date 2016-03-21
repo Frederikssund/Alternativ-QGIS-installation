@@ -109,7 +109,8 @@ Dette kan gennemføres uden rettelser af "qgis-prepare.bat" filen. Man skal blot
 
 #### Use Case: Central installation af QGIS på et netværksdrev
 
-I stedet for at placere QGIS program mappen på et lokalt drev på brugerens pc kan man placere denne mappe på en netværksbaseret drev, f.eks. "x:\\programmer\\qgis". Resten af installations processen er uændret
+I stedet for at placere QGIS program mappen på et lokalt drev på brugerens pc kan man placere denne mappe på en netværksbaseret drev, f.eks. "x:\\programmer\\qgis". Resten af installations processen er uændret.
+
 Da QGIS ikke skriver/opdaterer opsætnings data i program-mappen kan denne deles af mange brugere. Den eneste ulempe er en evt. længere opstartstid, fordi netdrevet er langsommere end et lokalt drev.
 
 #### Use Case: Installation af QGIS på CITRIX
