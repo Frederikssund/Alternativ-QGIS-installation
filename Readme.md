@@ -73,7 +73,7 @@ Rettelserne i "qgis.bat" samt brugen af den tilføjede fil "qgis-prepare.bat" be
 
 #####RUN fase
 
-1. Nu er du klar til at distibuere... Kopiér den tilrettede QGIS program mappe ud på brugerens pc (zip den og distribuer zip-filen)
+1. Nu er du klar til at distibuere...<br>Kopiér den tilrettede QGIS program mappe ud på brugerens pc (zip den og distribuer zip-filen).<br>QGIS program-mappen indeholder nu en udgave af QGIS brugermappen ("\<program-mappe\>.qgis-template") med alle de opsætnings-ændringer/tilføjelser, som du lavede under "PREPARE" - inklusiv en ini-fil med opsætningsparamtre, som ved en normal installation ville være placeret i registry.
 
 2. Bed brugeren om at starte QGIS ved at dobbeltklikke på [QGIS programmappe]\bin\qgis-start.bat
 
