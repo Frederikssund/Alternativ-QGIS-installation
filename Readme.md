@@ -57,7 +57,7 @@ For at få QGIS til at skrive/læse sine opsætningsparametre fra en ini-fil i s
 8. Start QGIS ved fra stifinder at dobbeltklikke på "**qgis-start.bat**" (**ikke** qgis.bat). 
 Rettelserne i "qgis.bat" samt brugen af den tilføjede fil "qgis-prepare.bat" betyder, at der 1) oprettes en ny bruger-mappe i qgis *program-mappen* ved navn ".qgis-template" og 2) Alle opsætningsparametre gemmes i en ini-fil  "QGIS2.ini" placeret i en undermappe til brugermappe ".qgis-template".<br>NB!! Under opstart af QGIS vha. "qgis-start.bat" vil script "qgis-prepare.bat" blive udført umiddelbart før starten af selve QGIS programmet. Scriptet indeholder bl.a. kode til at "huske" placeringen af QGIS program-mappen under "PREPARE" fasen. Denne oplysning bruges senere under "RUN" fasen. Man må derfor *ikke* ændre på placeringen af QGIS program-mappen under "PREPARE" fasen
 
-9. (Gen)-etablér alle opsætninger. Dette kan være en større opgave, da "QGIS2.ini" pt. kun indeholder et absolut minimum af standard indstillinger (Der er ikke taget noget med fra registry): Så opsætning omfatter bl.a. installation af plugins, opsætning af alle bruger preferencer mht. digitalisering, snap, selektion osv. osv. Og ikke mindst: For at processing til at fungere korrekt, skal man under options for processing angive hvor mapperne for hhv. GRASS, SAGA, ORFEUS osv er placeret. Gå ikke videre til næste punkt, før du har din "perfekte" opsætning af QGIS kørende!!
+9. (Gen)-etablér alle opsætninger. Dette kan være en større opgave, da "QGIS2.ini" pt. kun indeholder et absolut minimum af standard indstillinger (Der er ikke taget noget med fra registry): Så opsætning omfatter bl.a. installation af plugins, opsætning af alle bruger preferencer mht. digitalisering, snap, selektion osv. osv. Og ikke mindst: For at processing til at fungere korrekt, skal man under options for processing angive hvor mapperne for hhv. GRASS, SAGA, ORFEUS osv. er placeret. NB! Husk at placere disse ekstra programmer under QGIS program-mappen.<br>Gå ikke videre til næste punkt, før du har din "perfekte" opsætning af QGIS kørende!!
 
 10. Tilret slutteligt "qgis-start.bat" med følgende
 
@@ -77,7 +77,7 @@ Rettelserne i "qgis.bat" samt brugen af den tilføjede fil "qgis-prepare.bat" be
 
 2. Bed brugeren om at starte QGIS ved at dobbeltklikke på "\<program-mappe\>\\bin\\qgis-start.bat"
 
-3. Opstartfilen "qgis-start.bat" vil - ved første kørsel - automatisk oprette brugermappen som en kopi af ".qgs-template", etablere en genvej på skrivebordet og oprette en fil-association mellem .qgs filer og den nye QGIS. Endeligt vil alle fil referencer i "qgis2.ini" til program-mappen blive tilpasset den nye placering af QGIS program-mappen på brugerens pc.
+3. Opstartfilen "qgis-start.bat" vil - ved første kørsel - automatisk oprette brugermappen som en kopi af ".qgs-template", etablere en genvej på skrivebordet og oprette en fil-association mellem .qgs filer og den nye QGIS. Endeligt vil alle fil referencer i "qgis2.ini" til program- og bruger-mappe blive tilpasset de nye placeringer på brugerens pc.
 
 4. Ved efterfølgende kald vil QGIS starte almindeligt.<br> 
 Funktionerne beskrevet i pkt. 3 & 4 udføres i script "qgis-prepare.bat". Man kan evt. studere dette, hvis man ønsker et dybere kendskab til funktionaliteten.
