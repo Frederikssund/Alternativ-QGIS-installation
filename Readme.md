@@ -55,10 +55,10 @@ Opstartsfilen er placeret i mappe "bin" under QGIS program-mappen, f.eks "C:\Pro
    ```
 6. Gem den rettede fil. I GitHub distributionen er der et eksempel på den rettede fil. Du bør dog ikke bruge den direkte, men kun som en guide, da der kan være mindre forskelle mellem forskellige QGIS installationer.
 
-7. Kopier "qgis-prepare.bat" fra github distributionsmappen til samme mappe som qgis-start.bat.
+7. Kopier "qgis-prepare.bat" fra github distributionsmappen til samme mappe som "qgis-start.bat".
 
 8. Start QGIS ved fra stifinder at dobbeltklikke på "**qgis-start.bat**" (**ikke** qgis.bat). 
-Rettelserne i "qgis.bat" samt brugen af den tilføjede fil "qgis-prepare.bat" betyder, at der 1) oprettes en ny bruger-mappe i qgis *program-mappen* ved navn ".qgis-template" og 2) Alle opsætningsparametre gemmes i en ini-fil  "QGIS2.ini" placeret i en undermappe til brugermappe ".qgis-template".
+Rettelserne i "qgis.bat" samt brugen af den tilføjede fil "qgis-prepare.bat" betyder, at der 1) oprettes en ny bruger-mappe i qgis *program-mappen* ved navn ".qgis-template" og 2) Alle opsætningsparametre gemmes i en ini-fil  "QGIS2.ini" placeret i en undermappe til brugermappe ".qgis-template".<br>NB!! Under opstart af QGIS vha. "qgis-start.bat" vil script "qgis-prepare.bat" blive udført umiddelbart før starten af selve QGIS programmet. Scriptet indeholder bl.a. kode til at "huske" placeringen af QGIS program-mappen under "PREPARE" fasen. Denne oplysning bruges senere under "RUN" fasen. Man må derfor *ikke* ændre på placeringen af QGIS program-mappen under "PREPARE" fasen
 
 9. (Gen)-etablér alle opsætninger. Dette kan være en større opgave, da "QGIS2.ini" pt. kun indeholder et absolut minimum af standard indstillinger (Der er ikke taget noget med fra registry): Så opsætning omfatter bl.a. installation af plugins, opsætning af alle bruger preferencer mht. digitalisering, snap, selektion osv. osv. Og ikke mindst: For at processing til at fungere korrekt, skal man under options for processing angive hvor mapperne for hhv. GRASS, SAGA, ORFEUS osv er placeret. Gå ikke videre til næste punkt, før du har din "perfekte" opsætning af QGIS kørende!!
 
