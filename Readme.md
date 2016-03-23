@@ -77,7 +77,7 @@ Rettelserne i "qgis.bat" samt brugen af den tilføjede fil "qgis-prepare.bat" be
 
 2. Bed brugeren om at starte QGIS ved at dobbeltklikke på "\<program-mappe\>\\bin\\qgis-start.bat"
 
-3. Opstartfilen vil - ved første kørsel - automatisk oprette brugermappen som en kopi af ".qgs-template", etablere en genvej på skrivebordet og oprette en fil-association mellem .qgs filer og den nyinstallerede qgis. Endeligt vil alle fil referencer i "qgis2.ini" tilpasses den nye placering af QGIS program-mappen på brugerens pc.
+3. Opstartfilen "qgis-start.bat" vil - ved første kørsel - automatisk oprette brugermappen som en kopi af ".qgs-template", etablere en genvej på skrivebordet og oprette en fil-association mellem .qgs filer og den nye QGIS. Endeligt vil alle fil referencer i "qgis2.ini" til program-mappen blive tilpasset den nye placering af QGIS program-mappen på brugerens pc.
 
 4. Ved efterfølgende kald vil QGIS starte almindeligt.<br> 
 Funktionerne beskrevet i pkt. 3 & 4 udføres i script "qgis-prepare.bat". Man kan evt. studere dette, hvis man ønsker et dybere kendskab til funktionaliteten.
