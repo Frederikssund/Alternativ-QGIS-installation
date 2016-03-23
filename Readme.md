@@ -35,20 +35,17 @@ For at få QGIS til at skrive/læse sine opsætningsparametre fra en ini-fil i s
 
 1. Installér en ordinær udgave af QGIS på din pc. Den bør **ikke** installeres i "Program Files" eller "Programmer", fordi der løbende vil blive tilføjet nye filer og tilrettet eksisterende filer i "PREPARE" fasen. Standard sikkerhedsregler i "Progam Files" kan genere eller helt forhindre denne proces.
 
-1. Find placering af opstartsfilen "qgis.bat" (Filen *kan* have et andet navn, afhængig af version og installationsmetode)
-QGIS opstartes via denne opstartsfil, som forbereder en række parametre og afsluttes med den egentlige opstart af QGIS. 
-Opstartsfilen er placeret i mappe "bin" under QGIS program-mappen, f.eks "C:\Program Files\QGIS Lyon\bin\qgis.bat"
+1. Find placering af opstartsfilen "qgis.bat" (Filen *kan* have et andet navn, afhængig af version og installationsmetode). Opstartsfilen er placeret i mappe "bin" under QGIS program-mappen, f.eks "C:\Program Files\QGIS Lyon\bin\qgis.bat".<br>QGIS opstartes via denne opstartsfil, som forbereder en række parametre til QGIS og afslutter med den egentlige opstart af QGIS.
 
 2. Lav en kopi af "qgis.bat" med navn "qgis-start.bat" og placér filen i samme mappe som originalen.
 
 3. "qgis-start.bat" redigeres vha. en simpel teksteditor, f.eks notepad:
 
-4. Sidste linie i filen har følgende udseende:
+4. Sidste linie i filen, som har følgende udseende:
    ```
    start "QGIS" /B "%OSGEO4W_ROOT%"\bin\qgis-bin.exe %*
    ```
-
-5. Tilføj ny linie og tilret eksisterende til følgende udseende:
+   tilføjes en ny linie og den eksisterende linie tilrettes med følgende:
    ```
    call "%OSGEO4W_ROOT%\bin\qgis-prepare.bat"
    start "QGIS" /B "%OSGEO4W_ROOT%"\bin\qgis-bin.exe --configpath "%QGIS_UDIR%" %*
