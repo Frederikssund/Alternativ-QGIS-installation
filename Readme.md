@@ -73,13 +73,13 @@ Rettelserne i "qgis.bat" samt brugen af den tilføjede fil "qgis-prepare.bat" be
 
 #####RUN fase
 
-1. Nu er du klar til at distibuere...<br>Kopiér den tilrettede QGIS program mappe ud på brugerens pc (zip den og distribuer zip-filen).<br>QGIS program-mappen indeholder nu en udgave af QGIS brugermappen ("\<program-mappe\>.qgis-template") med alle de opsætnings-ændringer/tilføjelser, som du lavede under "PREPARE" - inklusiv en ini-fil med opsætningsparamtre, som ved en normal installation ville være placeret i registry.
+1. Nu er du klar til at distibuere...<br>Kopiér den tilrettede QGIS program mappe ud på brugerens pc (zip den og distribuer zip-filen).<br>QGIS program-mappen indeholder nu en udgave af QGIS brugermappen ("\<program-mappe\>\\.qgis-template") med alle de opsætnings-ændringer/tilføjelser, som du lavede under "PREPARE" - inklusiv en ini-fil med opsætningsparamtre, som ved en normal installation ville være placeret i registry.
 
-2. Bed brugeren om at starte QGIS ved at dobbeltklikke på [QGIS programmappe]\bin\qgis-start.bat
+2. Bed brugeren om at starte QGIS ved at dobbeltklikke på "\<program-mappe\>\\bin\\qgis-start.bat"
 
-3. Opstartfilen vil herefter automatisk oprette brugermappen som en kopi af ".qgs-template", etablere en genvej på skrivebordet og oprette en fil-association mellem .qgs filer og den nyinstallerede qgis. Endeligt vil alle fil referencer i "qgis2.ini" tilpasses den nye placering.
+3. Opstartfilen vil - ved første kørsel - automatisk oprette brugermappen som en kopi af ".qgs-template", etablere en genvej på skrivebordet og oprette en fil-association mellem .qgs filer og den nyinstallerede qgis. Endeligt vil alle fil referencer i "qgis2.ini" tilpasses den nye placering af QGIS program-mappen på brugerens pc.
 
-4. Ved efterfølgende kald vil QGIS starte almindeligt. 
+4. Ved efterfølgende kald vil QGIS starte almindeligt.<br> 
 Funktionerne beskrevet i pkt. 3 & 4 udføres i script "qgis-prepare.bat". Man kan evt. studere dette, hvis man ønsker et dybere kendskab til funktionaliteten.
 
 **Hvis** din IKT afdeling insisterer på at lave en .msi baseret installation, kan man sagtens pakke program-mappe, bruger-mappe, genveje og fil-associationer ned i en standard msi pakke. Man skal blot huske på at fil referencer til den originale placering af brugermappe og programmappe skal tilpasses til de nye omgivelser i fil "qgis2.ini"
