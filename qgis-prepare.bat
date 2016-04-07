@@ -8,8 +8,8 @@ REM Path to user directory (with no trailing backslash).. only used in RUN mode
 set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
 
 REM Name of QGIS exe file, normally "qgis-bin.exe". This variable is only used to set the *icon* of the desktop shortcut
-set "QGIS_BIN=qgis-rel-dev-bin.exe"
-::set "QGIS_BIN=qgis-bin.exe"
+::set "QGIS_BIN=qgis-rel-dev-bin.exe"
+set "QGIS_BIN=qgis-bin.exe"
 
 REM Text for the desktop shortcut. Change for new versions
 set "QGIS_TEXT=Start QGIS 2.14"
