@@ -53,7 +53,7 @@ For at få QGIS til at skrive/læse sine opsætningsparametre fra en ini-fil i s
    (I den sidste linie tilføjes ```--configpath "%QGIS_UDIR%"``` umiddelbart før ```%*```)
 6. Gem den rettede fil. I GitHub distributionen er der et eksempel på den rettede fil. Du bør dog ikke bruge den direkte, men kun som en guide, da der kan være mindre forskelle mellem forskellige QGIS installationer.
 
-7. Kopier "qgis-prepare.bat" fra github distributionsmappen til samme mappe som "qgis-start.bat".
+7. Kopier "qgis-prepare.bat" samt "minised.exe" fra github distributionsmappen til samme mappe som "qgis-start.bat".
 
 8. Start QGIS ved fra stifinder at dobbeltklikke på "**qgis-start.bat**" (**ikke** qgis.bat). 
 Rettelserne i "qgis.bat" samt brugen af den tilføjede fil "qgis-prepare.bat" betyder, at der 1) oprettes en ny bruger-mappe i qgis *program-mappen* ved navn ".qgis-template" og 2) Alle opsætningsparametre gemmes i en ini-fil  "QGIS2.ini" placeret i en undermappe til brugermappe ".qgis-template".<br>NB!! Under opstart af QGIS vha. "qgis-start.bat" vil script "qgis-prepare.bat" blive udført umiddelbart før starten af selve QGIS programmet. Scriptet indeholder bl.a. kode til at "huske" placeringen af QGIS program-mappen under "PREPARE" fasen. Denne oplysning bruges senere under "RUN" fasen. Man må derfor *ikke* ændre på placeringen af QGIS program-mappen under "PREPARE" fasen.
@@ -88,7 +88,7 @@ Funktionerne beskrevet i pkt. 3 & 4 udføres i script "qgis-prepare.bat". Man ka
 
 ### Alternative installationer
 
-Udgaven af filen "qgis-prepare.bat", som forefindes på GitHub, vil placere brugermappen i en undermappe ".qgis_214" til brugerens hjemmemappe, f.eks. "C:\Users\bvtho\.qgis_214" hvis brugerinitialer er "bvtho" på en Windows7 baseret pc. Dette er meget tæt på den originale standard placering, hvor mappen hedder ".qgis2"
+Udgaven af filen "qgis-prepare.bat", som forefindes på GitHub, vil placere QGIS brugermappen i en undermappe ".qgis_214" til brugerens hjemmemappe, f.eks. "C:\Users\bvtho\.qgis_214" hvis brugerinitialer er "bvtho" på en Windows7 baseret pc. Dette er meget tæt på den originale standard placering, hvor mappen hedder ".qgis2"
 
 Det er muligt at benytte andre placeringer ved at rette på en enkelt linie i "qgis-prepare.bat". 
 Find linien:
@@ -98,8 +98,7 @@ Find linien:
     set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
     ```
 
-og tilpas "%USERPROFILE%\\.qgis_214" til det ønskede. (%USERPROFILE% er en environment variabel, som peger på brugerens
-hjemmemappe)
+og tilpas "%USERPROFILE%\\.qgis_214" til det ønskede. (%USERPROFILE% er en environment variabel, som peger på brugerens hjemmemappe)
 
 #### Use Case: Installation af QGIS på en fremmed kursus-pc, hvortil man ikke har "Local Admin" privilegier.
 
@@ -109,7 +108,7 @@ Dette kan gennemføres uden rettelser af "qgis-prepare.bat" filen. Man skal blot
 
 I stedet for at placere QGIS program mappen på et lokalt drev på brugerens pc kan man placere denne mappe på en netværksbaseret drev, f.eks. "x:\\programmer\\qgis". Resten af installations processen er uændret.
 
-Da QGIS ikke skriver/opdaterer opsætnings data i program-mappen kan denne deles af mange brugere. Den eneste ulempe er en evt. længere opstartstid, fordi netdrevet er langsommere end et lokalt drev.
+Da QGIS ikke skriver/opdaterer opsætnings data i program-mappen kan denne deles af mange brugere. Den eneste ulempe er en længere opstartstid, fordi netdrevet er generelt er langsommere end et lokalt drev.
 
 #### Use Case: Installation af QGIS på CITRIX
 
