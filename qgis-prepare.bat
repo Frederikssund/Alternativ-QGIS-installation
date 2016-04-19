@@ -7,11 +7,6 @@ REM ==================================================================
 REM Final path to QGIS user directory (with no trailing backslash).. only used in RUN mode
 set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
 
-REM Name of QGIS exe file, normally "qgis-bin.exe". 
-REM This variable is used to find and set the *icon* of the desktop shortcut
-::set "QGIS_BIN=qgis-rel-dev-bin.exe"
-set "QGIS_BIN=qgis-bin.exe"
-
 REM Text for the desktop shortcut. Change for new versions
 set "QGIS_TEXT=Start QGIS 2.14"
 
@@ -84,7 +79,7 @@ minised "s#%UO%#%UN%#g;s#%UO:/=\\\\%#%UN:/=\\\\%#g;s#%PO%#%PN%#g;s#%PO:/=\\\\%#%
 REM (You survived...)
 
 REM Create shortcut on desktop for user 
-nircmd shortcut """%OSGEO4W_ROOT%""\bin\qgis-start.bat" "~$folder.desktop$" "%QGIS_TEXT%" "" """%OSGEO4W_ROOT%""\bin\%QGIS_BIN%" "0" "min" """%OSGEO4W_ROOT%""\bin" ""
+nircmd shortcut """%OSGEO4W_ROOT%""\bin\qgis-start.bat" "~$folder.desktop$" "%QGIS_TEXT%" "" """%OSGEO4W_ROOT%""\icons\QGIS.ico" "0" "min" """%OSGEO4W_ROOT%""\bin" ""
 
 REM Create file associations for QGIS - Can be deleted if you don't want the association 
 ftype qgis-prj="%OSGEO4W_ROOT%"\bin\qgis-start.bat "%%1"%%*
