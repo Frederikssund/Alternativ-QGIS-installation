@@ -83,7 +83,8 @@ Rettelserne i "qgis.bat" samt brugen af den tilføjede fil "qgis-prepare.bat" be
 4. Ved efterfølgende kald vil QGIS starte almindeligt.<br> 
 Funktionerne beskrevet i pkt. 3 & 4 udføres i script "qgis-prepare.bat". Man kan evt. studere dette, hvis man ønsker et dybere kendskab til funktionaliteten.
 
-**Hvis** din IKT afdeling insisterer på at lave en .msi baseret installation, kan man sagtens pakke program-mappe, bruger-mappe, genveje og fil-associationer ned i en standard msi pakke. Man skal blot huske på at fil referencer til den originale placering af brugermappe og programmappe skal tilpasses til de nye omgivelser i fil "qgis2.ini"
+**Hvis** din IKT afdeling ønsker at lave en .msi baseret installation, kan man pakke den forberedte program-mappe (som også indeholder skabelon til bruger-mappe) samt en genvej til opstart af QGIS (til placering på f.eks. skrivebordet).
+Man skal blot tilrette "qgis-prepare.bat" ved at fjerne en enkelt kommandolinie i filen. Kommandoen har til formål at oprette en genvej på skrivebordet, men dette er overflødigt, da msi-pakken allerede vil indeholde denne genvej. Kommandolinien er tydeligt markeret vha. kommentarer i fil "gqis-prepare.bat".
 
 
 ### Alternative installationer
