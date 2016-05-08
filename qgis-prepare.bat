@@ -79,6 +79,8 @@ minised "s#%UO%#%UN%#g;s#%UO:/=\\\\%#%UN:/=\\\\%#g;s#%PO%#%PN%#g;s#%PO:/=\\\\%#%
 REM (You survived...)
 
 REM Create shortcut on desktop for user 
+REM If QGIS is installed using a msi-package, then remove or comment the next line. It will be superfluous, because the 
+REM msi package is supposed to have it own installation of the shortcut.
 nircmd shortcut """%OSGEO4W_ROOT%""\bin\qgis-start.bat" "~$folder.desktop$" "%QGIS_TEXT%" "" """%OSGEO4W_ROOT%""\icons\QGIS.ico" "0" "min" """%OSGEO4W_ROOT%""\bin" ""
 
 REM Create file associations for QGIS - Can be deleted if you don't want the association 
