@@ -86,6 +86,8 @@ Funktionerne beskrevet i pkt. 3 & 4 udføres i script "qgis-prepare.bat". Man ka
 **Hvis** din IKT afdeling ønsker at lave en .msi baseret installation, kan man pakke den forberedte program-mappe (som også indeholder skabelon til bruger-mappe) samt en genvej til opstart af QGIS (til placering på f.eks. skrivebordet).
 Man skal blot tilrette "qgis-prepare.bat" ved at fjerne en enkelt kommandolinie i filen. Kommandoen har til formål at oprette en genvej på skrivebordet, men dette er overflødigt, da msi-pakken allerede vil indeholde denne genvej. Kommandolinien er tydeligt markeret vha. kommentarer i fil "gqis-prepare.bat".
 
+Efter udrulning af msi-pakke vil 1. opstart af QGIS færdiggøre installationen som beskrevet under "RUN fase", pkt.3
+
 
 ### Alternative installationer
 
