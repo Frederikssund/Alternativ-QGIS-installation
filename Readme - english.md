@@ -18,9 +18,9 @@ Disadvantages of the method:
 
 ### Basic method
 
-In the normal installation is placed QGIS parts of the installation at different locations on the PC:
+The normal installation of Q!GIS is placed at different locations on the PC:
 
-- Program Parts placed in a program folder, for example. "C:\\Program Files\\QGIS Lyon" for QGIS ver. 2.12. This program folder contains the main program, all the programs and possibly a number of external programs such as GRASS, SAGA, ORFEUS like. The directory contains no setup parameters or user-specific data. Program folder location depends on the installation method (If you do not know the different installation methods, you can read QGIS.ORG web page for downloading the program: [http://qgis.org/en/site/forusers/download.html] (http://qgis.org/en/site/forusers/download.html))
+- Programs are placed in a program folder, for example. "C:\\Program Files\\QGIS Lyon" for QGIS ver. 2.12. This program folder contains the main program, dll's and possibly a number of external programs such as GRASS, SAGA, ORFEUS like. The directory contains no setup parameters or user-specific data. Program folder location depends on the installation method (If you do not know the different installation methods, you can read QGIS.ORG web page for downloading the program: [http://qgis.org/en/site/forusers/download.html] (http://qgis.org/en/site/forusers/download.html))
 - A folder ".qgis2", usually placed in the user's home directory, eg "C:\\Users\\bvtho\\.Qgis2" for user "bvtho" of the PC. This folder contains folders for temporary data from the "processing", color palettes, templates for project management, as well as all non- "core" plugins. This folder is personalized for each user.
 - One or more "branches" in the registry, primarily "HKEY_CURRENT_USER\\Software\\QGIS". Registry contains all the setup parameters for QGIS.
 
