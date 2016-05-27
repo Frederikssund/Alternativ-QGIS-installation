@@ -1,14 +1,14 @@
 chcp 1252
 
 REM ==================================================================
-REM 3 parameters that can be changed by GIS administrator
+REM 2 parameters that can be changed by GIS administrator
 REM ==================================================================
 
 REM Final path to QGIS user directory (with no trailing backslash).. only used in RUN mode
-set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
+set "QGIS_UDIR=%USERPROFILE%\.qgis214_lean"
 
 REM Text for the desktop shortcut. Change for new versions
-set "QGIS_TEXT=Start QGIS 2.14"
+set "QGIS_TEXT=QGIS n00b"
 
 REM ==================================================================
 REM Don't edit the code beneath this comment (if you don't know *exactly* what you do ;-)
