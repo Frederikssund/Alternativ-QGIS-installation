@@ -72,6 +72,30 @@ Rettelserne i "qgis-start.bat" samt brugen af den tilføjede fil "qgis-prepare.b
     call "%OSGEO4W_ROOT%\bin\qgis-prepare.bat" RUN
     ```
     Og slet evt. den originale qgis.bat, således en bruger ikke kommer til at bruge den af vanvare. Efter denne ændring må du ikke foretage flere ændringer i opsætningen af QGIS.
+    
+11. Dette sidste punkt skal du kun gennemføre, hvis du ønsker at ændre på standardplaceringen for QGIS bruger mappen eller ændre standardteksten på den genvej, som automatisk vil blive genereret på brugerens desktop.
+<br>Udgaven af filen "qgis-prepare.bat", som forefindes på GitHub, vil placere QGIS brugermappen i en undermappe ".qgis_214" til brugerens hjemmemappe, f.eks. "C:\Users\bvtho\.qgis_214" hvis brugerinitialer er "bvtho" på en Windows7 baseret pc. Dette er meget tæt på den originale standard placering, hvor mappen hedder ".qgis2"
+
+Det er muligt at benytte andre placeringer ved at rette på en enkelt linie i "qgis-prepare.bat". 
+Find linien:
+
+    ```
+    REM Path to user directory (with no trailing backslash).. only used in RUN mode
+    set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
+    ```
+
+og tilpas "%USERPROFILE%\\.qgis_214" til det ønskede. (%USERPROFILE% er en environment variabel, som peger på brugerens hjemmemappe)
+<br>Endvidere kan man ændre på teksten til den automatisk oprettede genvej på brugerens skrivebord:
+
+<br>Find linien:
+
+    ```
+    REM Text for the desktop shortcut. Change for new versions
+    set "QGIS_TEXT=Start QGIS 2.14"
+    ```
+
+Ret "Start QGIS 2.14" til det ønskede.
+<br>NB! I begge tilfælde er det vigtigt at placere anførselstegn på samme måde som ved de original værdier
 
 #####RUN fase
 
@@ -92,17 +116,7 @@ Efter udrulning af msi-pakke vil 1. opstart af QGIS færdiggøre installationen 
 
 ### Alternative installationer
 
-Udgaven af filen "qgis-prepare.bat", som forefindes på GitHub, vil placere QGIS brugermappen i en undermappe ".qgis_214" til brugerens hjemmemappe, f.eks. "C:\Users\bvtho\.qgis_214" hvis brugerinitialer er "bvtho" på en Windows7 baseret pc. Dette er meget tæt på den originale standard placering, hvor mappen hedder ".qgis2"
-
-Det er muligt at benytte andre placeringer ved at rette på en enkelt linie i "qgis-prepare.bat". 
-Find linien:
-
-    ```
-    REM Path to user directory (with no trailing backslash).. only used in RUN mode
-    set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
-    ```
-
-og tilpas "%USERPROFILE%\\.qgis_214" til det ønskede. (%USERPROFILE% er en environment variabel, som peger på brugerens hjemmemappe)
+Ved at redigere i "qgis-prepare.bat" som beskrevet i pkt. 11 og flytte rundt på placeringen af QGIS program mappen, kan installationen tilpasses til en række forskellige user-cases.
 
 #### Use Case: Installation af QGIS på en fremmed kursus-pc, hvortil man ikke har "Local Admin" privilegier.
 
