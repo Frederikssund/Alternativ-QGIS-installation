@@ -35,7 +35,8 @@ For at få QGIS til at skrive/læse sine opsætningsparametre fra en ini-fil i s
 
 1. Installér en ordinær udgave af QGIS på din pc. Den bør **ikke** installeres i "C:\Program Files" eller "C:\Programmer", fordi der løbende vil blive tilføjet nye filer og tilrettet eksisterende filer i "PREPARE" fasen. Forskellige sikkerhedsregler i "C:\Progam Files" kan genere eller helt forhindre denne proces.
 
-1. Find placering af opstartsfilen "qgis.bat" (Filen *kan* have et andet navn, afhængig af version og installationsmetode). Opstartsfilen er placeret i mappe "bin" under QGIS program-mappen, f.eks "C:\Program Files\QGIS Lyon\bin\qgis.bat".<br>QGIS opstartes via denne opstartsfil, som forbereder en række parametre til QGIS og afslutter med den egentlige opstart af QGIS.
+1. Find placering af opstartsfilen "qgis.bat" (Filen *kan* have et andet navn, afhængig af version og installationsmetode). Opstartsfilen er placeret i mappe "bin" under QGIS program-mappen, f.eks "C:\Program Files\QGIS Lyon\bin\qgis.bat".<br>
+"qgis.bat" har til opgave at forberede en række environment parametre og slutteligt foretage den egentlige opstart af QGIS programmet.
 
 2. Lav en kopi af "qgis.bat" med navn "qgis-start.bat" og placér filen i samme mappe som originalen.
 
