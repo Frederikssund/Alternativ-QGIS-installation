@@ -81,7 +81,7 @@ The edits in "qgis.bat" and the use of the added file "qgis-prepare.bat" means t
 
 2. Ask the user to start QGIS by double-clicking on the file qgis-start.bat located in the "QGIS program folder"\bin directory.
 
-3. The "qgis-start.bat file will - at first run - will finish the installation by automatically creating a copy of ".qgs template" directory in the user directory, create a shortcut on the desktop and generate file association between .qgs files and the new QGIS program. Finally, all file and directory references inside the  "qgis2.ini" file will be adapted to the new locations of QGIS program- and QGIS user-directory on the user's PC.
+3. The "qgis-start.bat file will - at first run - finish the installation by automatically creating a copy of ".qgs_template" directory in the user directory, create a shortcut on the desktop and generate file associations between .qgs files and the new QGIS program. Finally, all file and directory references inside the  "qgis2.ini" file will be adapted to the new locations of QGIS program- and QGIS user-directory on the user's PC.
 
 4. Subsequent calls of qgis-start.bat will perform an ordinary startup of QGIS. <br>
 The installation functions described in sections 3 & 4 can be understood in detail by examining the script "qgis-prepare.bat". All step step in this bat-file is commented
@@ -89,7 +89,7 @@ The installation functions described in sections 3 & 4 can be understood in deta
 ** ** If your IT department wants to make a .msi based install, you can package the prepared program folder (which also contains the template to user folder) and a shortcut for starting QGIS (for example for location on the desktop).
 You just have to edit "qgis-prepare.bat" and remove a single command line in the file. The command is designed to create a shortcut on the desktop, but this is superfluous as the msi-package already contains this shortcut. The command line is clearly marked using comments in the file "gqis-prepare.bat".
 
-After rool-out of the msi package the first start-up of QGIS by the user will complete the installation as described in "RUN" phase point.3
+After roll-out of the msi package, the first start-up of QGIS by the user will complete the installation as described in "RUN" phase point.3
 
 
 ### Alternative installations
