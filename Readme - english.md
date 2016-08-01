@@ -1,59 +1,61 @@
 # Alternative installation of QGIS
 
+(First of all, please excuse me for this text in "pidgin" english. It's partly machine translated from danish) <br>
 This project describes a method for installation and operation of QGIS where QGIS uses a simple text file (ini file) for storing setup parameters for the program. The default Windows installation of QGIS uses the registry to store configuration parameters.
 
-By removing the dependency on the registry for QGIS achieves a number of advantages:
+By removing the dependency on the registry for QGIS a number of advantages is achieved:
 
 - A local installation can be reduced to copy two directories to the PC and create a shortcut to QGIS the user's desktop. You do not need to generate complex msi scripts for installation.
-- Alternative installations, such as the location of QGIS program on a network drive or installation in a Citrix environment is trivial modifications of the descibed, local installation.
+- Alternative installations, such as placing the QGIS program on a network drive or installation in a Citrix environment is trivial modifications of the descibed, local installation.
 - All setup parameters are collected in a ini file that are easy to inspect or edit using a simple text editor.
-- By placing the program folder *outside* the "C:\\Program Files" or similar directories it's possible to installa QGIS without "Local Admin" rights. This can be used by QGIS instructors for a quick installation of QGIS on a large number of PCs, 
+- By placing the program folder *outside* the "C:\\Program Files" or similar directories it's possible to install QGIS without "Local Admin" rights. This can be used by QGIS instructors for a quick installation of QGIS on a large number of "foreign" PCs, 
 where you only have normal user rights.
 - Make an installation of QGIS on many PCs having the exact same setup.
 
 Disadvantages of the method:
 
-- The method requires more processing compared to a manual standard installation on a single PC.
+- The method requires more preparatory work compared to a manual standard installation on a single PC.
 
 
 ### Basic method
 
-The normal installation of Q!GIS is placed at different locations on the PC:
+During a normal installation Qgis is sored at different locations on the PC:
 
-- Programs are placed in a program folder, for example. "C:\\Program Files\\QGIS Lyon" for QGIS ver. 2.12. This program folder contains the main program, dll's and possibly a number of external programs such as GRASS, SAGA, ORFEUS like. The directory contains no setup parameters or user-specific data. Program folder location depends on the installation method (If you do not know the different installation methods, you can read QGIS.ORG web page for downloading the program: [http://qgis.org/en/site/forusers/download.html] (http://qgis.org/en/site/forusers/download.html))
+- Programs are placed in a program folder, for example. "C:\\Program Files\\QGIS Lyon" for QGIS ver. 2.12. This program folder contains the main program, dll's and possibly a number of external programs such as GRASS, SAGA, ORFEUS like. The directory contains no setup parameters or user-specific data. Program folder location depends on the installation method (If you do not know the different installation methods, you can study the QGIS.ORG web site for downloading the program: [http://qgis.org/en/site/forusers/download.html] (http://qgis.org/en/site/forusers/download.html))
 - A folder ".qgis2", usually placed in the user's home directory, eg "C:\\Users\\bvtho\\.Qgis2" for user "bvtho" of the PC. This folder contains folders for temporary data from the "processing", color palettes, templates for project management, as well as all non- "core" plugins. This folder is personalized for each user.
 - One or more "branches" in the registry, primarily "HKEY_CURRENT_USER\\Software\\QGIS". Registry contains all the setup parameters for QGIS.
 
-The goal is to replace the location of setup parameters from the registry to a file located in the user folder .qgis2 ( ".qgis2\\QGIS\\QGIS2.ini")
+The goal is to remove Qgis setup parameters from the registry and placing them in a file located in the user folder .qgis2 ( ".qgis2\\QGIS\\QGIS2.ini")
 
-This occurs in two phases:
+This is done in two phases:
 
-- "PREPARE" phase, where GIS administrator prepares a standard. QGIS installation, so it is ready for installation at the end user.
+- "PREPARE" phase, where GIS administrator prepares a standard Qgis installation, so it is ready for installation at the the user pc.
 
-- "RUN" phase, where the edited program folder is copied out to the end user, after which the end user makes the final installation at the first start of QGIS on his / her PC.
+- "RUN" phase, where the edited program folder is copied out to the user pc, after which the user makes the final installation during the first start of QGIS on his / her PC.
 
-To get QGIS to read/write its setup parameters from an ini file instead of registry, you do the following:
+Do the following steps to get Qgis to read/write setup parameters from an ini file instead of registry:
 
 ##### PREPARE phase
 
 1. Install an ordinary version of QGIS on your PC. It should **not** be installed in "C:\\Program Files" or "C:\\Program Files", because during the "PREPARE" phase several files will be added or edited in the QGIS directory. Various safety-rules in the "C:\\progam files" may interfere or prevent this process.
 
-1. Find the location of the start-up file "qgis.bat" (file * can * have a different name depending on the version and installation method). Start-up file is located in the folder "bin" under QGIS program directory, eg "C:\Program Files\QGIS Lyon\\bin\\qgis.bat". <br> QGIS is started via the startup file that prepares a number of parameters to QGIS and ends with the actual start of QGIS.
+2. Find the location of the start-up file "qgis.bat" (file * can * have a different name depending on the version and installation method). Start-up file is located in the folder "bin" under QGIS program directory, eg "C:\Program Files\QGIS Lyon\\bin\\qgis.bat". <br> QGIS is started via the startup file that prepares a number of parameters to QGIS and ends with the actual start of QGIS.
 
-2. Make a copy of "qgis.bat" with the name "qgis-start menu" and place the file in the same folder as the original.
+3. Make a copy of "qgis.bat" with the name "qgis-start menu" and place the file in the same folder as the original.
 
-3. "qgis-start menu" edited using. A simple text editor such as Notepad:
+4. "qgis-start menu" edited using. A simple text editor such as Notepad:
 
-4. Find the last line in the file that has the following appearance:
-   ```
-   start "QGIS" /B "% OSGEO4W_ROOT%"\bin\qgis-bin.exe% *
-   ```
-   This adjusted by inserting a line of text before the last line and the line itself adapted so it straightened get the following appearance:
-   ```
-   call "% OSGEO4W_ROOT%\bin\qgis-prepare.bat"
-   start "QGIS" /B "% OSGEO4W_ROOT%"\bin\qgis-bin.exe --configpath "%QGIS_UDIR%" %*
-   ```
-   (In the last line added ```--configpath"%QGIS_UDIR% "``` immediately before ```%*```)
+5. Find the last line in the file that has the following appearance:
+   ```
+   start "QGIS" /B "% OSGEO4W_ROOT%"\bin\qgis-bin.exe% *
+   ```
+   This adjusted by inserting a line of text before the last line and the line itself adapted so it straightened get the following appearance:
+   ```
+   call "% OSGEO4W_ROOT%\bin\qgis-prepare.bat"
+   start "QGIS" /B "% OSGEO4W_ROOT%"\bin\qgis-bin.exe --configpath "%QGIS_UDIR%" %*
+   ```
+   (In the last line added ```--configpath"%QGIS_UDIR% "``` immediately before ```%*```)
+
 6. Save the edited file. In GitHub distribution is an example of the edited file. However, you should not use it directly, but only as a guide, as there may be small differences between different QGIS installations.
 
 7. Copy "qgis-prepare.bat" and "minised.exe" from github distribution folder to the same folder as "qgis-start menu".
@@ -65,15 +67,15 @@ The edits in "qgis.bat" and the use of the added file "qgis-prepare.bat" means t
 
 10. When you finish the setup of QGIS do edit "qgis-start menu" with the following:
 
-    line:
-    ```
-    call "% OSGEO4W_ROOT%\\bin\\qgis-prepare.bat"
-    ```
-    has to be changed to:
-    ```
-    call "% OSGEO4W_ROOT%\\bin\\qgis-prepare.bat" RUN
-    ```
-    And delete the "qgis.bat" so a user does not use it inadvertently. After the last change, don't make any additional changes in the configuration of QGIS.
+   line:
+   ```
+   call "% OSGEO4W_ROOT%\\bin\\qgis-prepare.bat"
+  ```
+   has to be changed to:
+   ```
+   call "% OSGEO4W_ROOT%\\bin\\qgis-prepare.bat" RUN
+   ```
+   And delete the "qgis.bat" so a user does not use it inadvertently. After the last change, don't make any additional changes in the configuration of QGIS.
 
 ##### RUN phase
 
