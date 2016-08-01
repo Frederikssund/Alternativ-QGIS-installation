@@ -1,5 +1,7 @@
 # Alternativ installation af QGIS
 
+(For english-speaking speaking users, see file "Readme-english.md")<br>
+
 Dette projekt beskriver en metode til installation og drift af QGIS, hvor QGIS benytter en simpel tekst fil (ini-fil) til opbevaring af opsætningsparametre for programmet. Standard Windows installationen af QGIS benytter registry til opbevaring af opsætningsparametre. 
 
 Ved at fjerne afhængigheden af registry for QGIS opnås en række fordele:
