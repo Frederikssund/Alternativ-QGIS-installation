@@ -66,11 +66,11 @@ The edits in "qgis-start.bat" and the use of "qgis-prepare.bat" means that 1) a 
 
    line:
    ```
-   call "% OSGEO4W_ROOT%\\bin\\qgis-prepare.bat"
+   call "% OSGEO4W_ROOT%\bin\qgis-prepare.bat"
   ```
    is changed to:
    ```
-   call "% OSGEO4W_ROOT%\\bin\\qgis-prepare.bat" RUN
+   call "% OSGEO4W_ROOT%\bin\qgis-prepare.bat" RUN
    ```
    (And delete the "qgis.bat" so a user does not use it inadvertently. Don't make any additional changes in the configuration of Qgis after the last edit of "qgis-start.bat".
 
@@ -115,9 +115,9 @@ Instead of placing the QGIS application folder on a local drive on the user's pc
 
 Since QGIS do not write/update setup data to the QGIS program directory, it can be can be shared by many users. The only drawback is longer start-up time because network shares generally is slower than a local drive.
 
-#### Use Case: Installation of QGIS on CITRIX
+#### Use Case: Installation of Qgis on Citrix
 
-On most CITRIX installations each user have a personal network based folder, for example. "M:\\personal". So instead of placing QGIS user folder on the local drive of the CITRIX server, you place the user folder on the user's personal network drive. Since the QGIS installation doesn't use the registry, the individual CITRIX server will not contain any user specific setup data, only program files and additional files, like ex. help files. This significant simplifies the QGIS installation and the daily use of QGIS in a CITRIX server farm - environment.
+On most Citrix installations each user have a personal network based folder, for example. "M:\\personal". So instead of placing Qgis user folder on the local drive of the Citrix server, you place the user folder on the user's personal network drive. Since the modified Qgis installation doesn't use the registry, the individual Citrix server will not contain any user specific setup data at all, only program files and additional files, like help files. This simplifies the Qgis installation and the daily use of Qgis in a Citrix server farm.
 
 If the user's personal drive is called "M:\\personal" you can do the following:
 
