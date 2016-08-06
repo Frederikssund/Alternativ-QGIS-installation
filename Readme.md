@@ -1,4 +1,4 @@
-# Alternativ installation af QGIS
+# Alternativ installation af QGIS <br>(Installation of QGIS without using the registry)
 
 (For english-speaking speaking users, see file "Readme-english.md")<br>
 
