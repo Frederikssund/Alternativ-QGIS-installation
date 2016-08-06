@@ -132,7 +132,7 @@ set "QGIS_UDIR=M:\personal\.qgis_214"
 ```
 
 Prepare Qgis as described on a normal pc (not Citrix). After preparation and the last change to "qgis-start.bat",  copy the prepared Qgis program folder on the Citrix server - or servers, if it's a Citrix server farm.<br><br>
-The first time a user starts the Citrix - Qgis, it will create the use user environment and this environment will be placed in a location **not** on the Citrix server. The following startups of the Citrix - Qgis will be normal, because the the user environment already exists **even** if the started Qgis is placed on another server in the Citrix server farm
+The first time a user starts the Citrix - Qgis, it will create the use user environment and this environment will be placed in a location **not** on the Citrix server. The following startups of the Citrix - Qgis will be normal, because the user environment already exists **even** if the started Qgis is placed on another server in the Citrix server farm
 
 #### Use Case: Installation of 2 different QGIS versions on the same PC with different user setup for each QGIS version
 
