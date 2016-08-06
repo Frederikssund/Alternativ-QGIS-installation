@@ -29,7 +29,7 @@ This operation is split in two phases:
 
 - "PREPARE" phase, where the GIS administrator prepares a standard Qgis installation, so it is ready for installation at the the user pc.
 
-- "RUN" phase, where the prepared QGIS installation (one directory) is copied out to the user pc, after which the user makes the final installation during the first start of QGIS on the PC.
+- "RUN" phase, where the prepared QGIS installation (one directory) is copied to the user pc and the user makes the final installation during the first start of QGIS on the PC.
 
 ##### PREPARE phase
 
