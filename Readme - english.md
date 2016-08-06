@@ -1,6 +1,6 @@
 # Alternative installation of QGIS without using the Windows registry
 
-(First of all, please excuse me for this text in "pidgin" english. It's partly machine translated from danish) <br>
+(First of all, please excuse me for this text in "pidgin" english. It's partly machine translated from danish) <br><br>
 This project describes a method for installation and operation of QGIS where QGIS uses a simple text file (ini file) for storing setup parameters for the program. The default Windows installation of QGIS uses the registry to store configuration parameters.
 
 By removing the dependency on the registry for QGIS a number of advantages is achieved:
