@@ -59,7 +59,7 @@ This operation is split in two phases:
 8. Start Qgis by double-clicking the "** qgis-start.bat **" (** not ** qgis.bat).
 The edits in "qgis-start.bat" and the use of "qgis-prepare.bat" means that 1) a new user folder will be created in the QGIS *program folder* named ".qgis_template" and 2) all setup parameters will be stored in an ini-file "QGIS2.ini" located in a subfolder of the new user folder ".qgis_template".
 
-9. After starting Qgis you'll have to (re)establish all Qgis setup parameters. The setup-file "QGIS2.ini" contains only the bare minimum of standard options (no existing setups have been copied from the registry). <br>Setup includes installation of plugins, setting all user preferences regarding digitizing, snap, selection etc. And not least: For the processing to work properly, you have to - under "options for processing" - specify where GRASS, SAGA, ORFEUS etc. are located. <br>NB! If you have installed these libraries using a separate installation of these additional programs, they must be placed under the Qgis program folder. <br>NB !! While starting Qgis using "qgis-start.bat" the script "qgis-prepare.bat" will be executed immediately before the start of the main Qgis program. The script includes commands to store the position of the Qgis program folder and the user's home directory during the "PREPARE" phase. This information is later used during the "RUN" phase. Do *not* change the location of the Qgis program folder or switch to another user during the "PREPARE" phase. However, you may start QGIS several times during "PREPARE" phase, so you don't have to do all the prepapatory work in one session. <br>Do not proceed to the next step until you have your 'perfect' setup of QGIS running !!
+9. After starting Qgis you'll have to (re)establish all Qgis setup parameters. The setup-file "QGIS2.ini" contains only the bare minimum of standard options (no existing setups have been copied from the registry). <br><br>Setup includes installation of plugins, setting all user preferences regarding digitizing, snap, selection etc. And not least: For the processing to work properly, you have to - under "options for processing" - specify where GRASS, SAGA, ORFEUS etc. are located. <br><br>NB! If you have installed these libraries using a separate installation of these additional programs, they must be placed under the Qgis program folder. <br><br>NB !! While starting Qgis using "qgis-start.bat" the script "qgis-prepare.bat" will be executed immediately before the start of the main Qgis program. The script includes commands to store the position of the Qgis program folder and the user's home directory during the "PREPARE" phase. This information is later used during the "RUN" phase. Do *not* change the location of the Qgis program folder or switch to another user during the "PREPARE" phase. However, you may start QGIS several times during "PREPARE" phase, so you don't have to do all the prepapatory work in one session. <br><br>Do not proceed to the next step until you have your 'perfect' setup of QGIS running !!
 
 10. When you're done with the preparation of Qgis re-edit "qgis-start.bat" with the following:
 
@@ -116,11 +116,11 @@ Since QGIS do not write/update setup data to the QGIS program directory, it can 
 
 #### Use Case: Installation of Qgis on Citrix
 
-On most Citrix installations each user have a personal network based folder, for example "M:\\personal". So instead of placing Qgis user folder on the local drive of the Citrix server, you place the user folder on the user's personal network drive. Since the modified Qgis installation doesn't use the registry, the individual Citrix server will not contain any user specific setup data at all, only program files and additional files, like help files. This simplifies the Qgis installation and the daily use of Qgis in a Citrix server farm.
+On most Citrix installations each user have a personal network based folder, for example "M:\\personal". Instead of placing the Qgis user folder on the local drive of the Citrix server, you can place the user folder on the user's personal network drive. Since the modified Qgis installation doesn't use the registry, the individual Citrix server will not contain any user specific setup data at all, only program files and additional files like help files. This simplifies the Qgis installation and daily use of Qgis installed in a Citrix server farm.
 
 If the user's personal directory is called "M:\\personal" you can do the following:
 
-In "qgis-prepare.bat" directed line:
+In "qgis-prepare.bat" change the line:
 ```
 REM Path to user directory (with no trailing backslash) .. only used in RUN mode
 set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
@@ -131,8 +131,8 @@ REM Path to user directory (with no trailing backslash) .. only used in RUN mode
 set "QGIS_UDIR=M:\personal\.qgis_214"
 ```
 
-Prepare Qgis as described on a normal pc (not Citrix). After preparation and the last change to "qgis-start.bat",  copy the prepared Qgis program folder on the Citrix server - or servers, if it's a Citrix server farm.<br>
-The first time a user starts the Citrix Qgis, it will create the use user environment and this environment will be placed in a location **not** on the Citrix server. The following startups of the Citrix Qgis will be normal, because the the user environment already exists. **Even** if it's Qgis placed on another server in the Citrix server farm
+Prepare Qgis as described on a normal pc (not Citrix). After preparation and the last change to "qgis-start.bat",  copy the prepared Qgis program folder on the Citrix server - or servers, if it's a Citrix server farm.<br><br>
+The first time a user starts the Citrix - Qgis, it will create the use user environment and this environment will be placed in a location **not** on the Citrix server. The following startups of the Citrix - Qgis will be normal, because the the user environment already exists **even** if the started Qgis is placed on another server in the Citrix server farm
 
 #### Use Case: Installation of 2 different QGIS versions on the same PC with different user setup for each QGIS version
 
