@@ -116,9 +116,9 @@ Since QGIS do not write/update setup data to the QGIS program directory, it can 
 
 #### Use Case: Installation of Qgis on Citrix
 
-On most Citrix installations each user have a personal network based folder, for example. "M:\\personal". So instead of placing Qgis user folder on the local drive of the Citrix server, you place the user folder on the user's personal network drive. Since the modified Qgis installation doesn't use the registry, the individual Citrix server will not contain any user specific setup data at all, only program files and additional files, like help files. This simplifies the Qgis installation and the daily use of Qgis in a Citrix server farm.
+On most Citrix installations each user have a personal network based folder, for example "M:\\personal". So instead of placing Qgis user folder on the local drive of the Citrix server, you place the user folder on the user's personal network drive. Since the modified Qgis installation doesn't use the registry, the individual Citrix server will not contain any user specific setup data at all, only program files and additional files, like help files. This simplifies the Qgis installation and the daily use of Qgis in a Citrix server farm.
 
-If the user's personal drive is called "M:\\personal" you can do the following:
+If the user's personal directory is called "M:\\personal" you can do the following:
 
 In "qgis-prepare.bat" directed line:
 ```
