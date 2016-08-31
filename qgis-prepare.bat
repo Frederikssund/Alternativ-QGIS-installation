@@ -10,6 +10,10 @@ set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
 REM Text for the desktop shortcut. Change for new versions
 set "QGIS_TEXT=Start QGIS 2.14"
 
+REM Full path of central update command. Use only during beta phase, obvious security problem. Set to "" if not used
+set "QGIS_NETCMD="
+REM set "QGIS_NETCMD=x:\qgis216\updates\qgis_update.cmd"
+
 REM ==================================================================
 REM Don't edit the code beneath this comment (if you don't know *exactly* what you do ;-)
 REM ==================================================================
@@ -37,9 +41,16 @@ REM ==================================================================
 REM RUN part of the script....
 REM ==================================================================
 
-REM If the user directory exists ==> Installation already done; exit and run QGIS in "RUN" mode
-if exist %QGIS_UDIR% exit /b
+REM If the user directory doesn't exists ==> Start installation
+if not exist %QGIS_UDIR% goto install
 
+REM Run the central update commmandfile if the variable is set to a location and the file exist.
+if not *%QGIS_NETCMD%==* if exist %QGIS_NETCMD% call %QGIS_NETCMD%
+
+REM  Exit and run QGIS in "RUN" mode
+exit /b
+
+:install
 REM ==================================================================
 REM First time use of QGIS on a user-pc ==> Do installation of user-directory....
 REM ==================================================================
@@ -74,7 +85,6 @@ REM (Warning! Your brain explodes after 4 seconds exposure to the next commands!
 
 copy "%UN%\QGIS\QGIS2.ini" "%UN%\QGIS\QGIS2.org"
 minised "s#%UO%#%UN%#g;s#%UO:/=\\\\%#%UN:/=\\\\%#g;s#%PO%#%PN%#g;s#%PO:/=\\\\%#%PN:/=\\\\%#g;s#%QO%#%QN%#g;s#%QO:/=\\\\%#%QN:/=\\\\%#g" "%UN%\QGIS\QGIS2.org" > "%UN%\QGIS\QGIS2.ini"
-
 
 REM (You survived...)
 
