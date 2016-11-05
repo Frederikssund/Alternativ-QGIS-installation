@@ -54,7 +54,7 @@ This operation is split in two phases:
 
 6. Save the edited file. The GitHub distribution contains an example of the edited file. However, you are advised not to use it directly, but only as a guide, as there may be small differences between different QGIS installations.
 
-7. Copy "qgis-prepare.bat" and "minised.exe" from Github distribution folder to the same folder as "qgis-start menu".
+7. Copy "qgis-prepare.bat" and "minised.exe" from Github distribution folder to the same folder as "qgis-start.bat".
 
 8. Start Qgis by double-clicking the "** qgis-start.bat **" (** not ** qgis.bat).
 The edits in "qgis-start.bat" and the use of "qgis-prepare.bat" means that 1) a new user folder will be created in the QGIS *program folder* named ".qgis_template" and 2) all setup parameters will be stored in an ini-file "QGIS2.ini" located in a subfolder of the new user folder ".qgis_template".
