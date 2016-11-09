@@ -56,8 +56,8 @@ This operation is split in two phases:
 
 7. Copy "qgis-prepare.bat" and "minised.exe" from Github distribution folder to the same folder as "qgis-start.bat".
 
-8. During the ordinary Qgis installation two dll - files is copied to directory C:\\Windows\System32. The files are  Microsoft basic support files that is used by Qgis. To ensure that the files are present in subsequent Qgis installations the files has to be copied from C:\\Windows\\System32 to the Qgis program directory, subdirectory \\bin, ex. "C:\Program Files\QGIS 2.18\bin\"<br><br>
-The names of the two files is msvcp120.dll and msvcr120.dll, if the version of Qgis is 2.18. For earlier Qgis the names  **might** be  msvcp110.dll / msvcr110.dll or msvcp100.dll / msvcr100.dll.<br><br>NB! If a Qgis 32 bit version is prepared using aWindows 64 bit PC, the dll files has to be copied from directory  C:\\Windows\\SysWOW64 - **not** C:\\Windows\\System32.
+8. During the ordinary Qgis installation two dll - files is copied to directory "C:\\Windows\\System32". The files are  Microsoft basic support files that is used by Qgis. To ensure that the files are present in subsequent Qgis installations the files has to be copied from "C:\\Windows\\System32" to the Qgis program directory, subdirectory "\\bin" (ex. "C:\Program Files\QGIS 2.18\bin\")<br><br>
+The names of the two files is msvcp120.dll and msvcr120.dll, if the version of Qgis is 2.18. For earlier Qgis the names  **might** be  msvcp110.dll / msvcr110.dll or msvcp100.dll / msvcr100.dll.<br><br>NB! If a Qgis 32 bit version is prepared using aWindows 64 bit PC, the dll files has to be copied from directory "C:\\Windows\\SysWOW64" - **not** "C:\\Windows\\System32".
 
 8. Start Qgis by double-clicking the "** qgis-start.bat **" (** not ** qgis.bat).
 The edits in "qgis-start.bat" and the use of "qgis-prepare.bat" means that 1) a new user folder will be created in the QGIS *program folder* named ".qgis_template" and 2) all setup parameters will be stored in an ini-file "QGIS2.ini" located in a subfolder of the new user folder ".qgis_template".
