@@ -41,16 +41,9 @@ REM ==================================================================
 REM RUN part of the script....
 REM ==================================================================
 
-REM If the user directory doesn't exists ==> Start installation
-if not exist %QGIS_UDIR% goto install
+REM If the user directory exists ==> Start Qgis normally
+if exist %QGIS_UDIR% goto start_qgis
 
-REM Run the central update commmandfile if the variable is set to a location and the file exist.
-if not *%QGIS_NETCMD%==* if exist %QGIS_NETCMD% call %QGIS_NETCMD%
-
-REM  Exit and run QGIS in "RUN" mode
-exit /b
-
-:install
 REM ==================================================================
 REM First time use of QGIS on a user-pc ==> Do installation of user-directory....
 REM ==================================================================
@@ -97,6 +90,10 @@ REM Create file associations for QGIS - Can be deleted if you don't want the ass
 ftype qgis-prj="%OSGEO4W_ROOT%"\bin\qgis-start.bat "%%1"%%*
 assoc .qpr=qgis-prj
 
-REM Exit and run QGIS in "RUN" mode 
-exit /b
+:start_qgis
 
+REM Run the central update commmandfile if the variable is set to a location and the file exist.
+if not *%QGIS_NETCMD%==* if exist %QGIS_NETCMD% call %QGIS_NETCMD%
+
+REM  Exit and run QGIS in "RUN" mode
+exit /b
