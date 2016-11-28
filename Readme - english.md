@@ -59,8 +59,8 @@ This operation is split in two phases:
 8. During the ordinary Qgis installation two dll - files is copied to directory "C:\\Windows\\System32". The files are  Microsoft basic support files that is used by Qgis. To ensure that the files are present in subsequent Qgis installations the files has to be copied from "C:\\Windows\\System32" to the Qgis program directory, subdirectory "\\bin" (ex. "C:\Program Files\QGIS 2.18\bin\")<br><br>
 The names of the two files is msvcp120.dll and msvcr120.dll, if the version of Qgis is 2.18. For earlier Qgis the names  **might** be  msvcp110.dll / msvcr110.dll or msvcp100.dll / msvcr100.dll.<br><br>NB! If a Qgis 32 bit version is prepared using aWindows 64 bit PC, the dll files has to be copied from directory "C:\\Windows\\SysWOW64" - **not** "C:\\Windows\\System32".
 
-8. Start Qgis by double-clicking the "** qgis-start.bat **" (** not ** qgis.bat).
-The edits in "qgis-start.bat" and the use of "qgis-prepare.bat" means that 1) a new user folder will be created in the QGIS *program folder* named ".qgis_template" and 2) all setup parameters will be stored in an ini-file "QGIS2.ini" located in a subfolder of the new user folder ".qgis_template".
+8. Start Qgis by double-clicking the "**qgis-start.bat**" (**not** qgis.bat).
+The edits in "qgis-start.bat" and the use of "qgis-prepare.bat" means that<br>1) a new user folder will be created in the QGIS *program folder* named ".qgis_template" and<br>2) all setup parameters will be stored in an ini-file "QGIS2.ini" located in a subfolder of the new user folder ".qgis_template".
 
 9. After starting Qgis you'll have to (re)establish all Qgis setup parameters. The setup-file "QGIS2.ini" contains only the bare minimum of standard options (no existing setups have been copied from the registry). <br><br>Setup includes installation of plugins, setting all user preferences regarding digitizing, snap, selection etc. And not least: For the processing to work properly, you have to - under "options for processing" - specify where GRASS, SAGA, ORFEUS etc. are located. <br><br>NB! If you have installed these libraries using a separate installation of these additional programs, they must be placed under the Qgis program folder. <br><br>NB !! While starting Qgis using "qgis-start.bat" the script "qgis-prepare.bat" will be executed immediately before the start of the main Qgis program. The script includes commands to store the position of the Qgis program folder and the user's home directory during the "PREPARE" phase. This information is later used during the "RUN" phase. Do *not* change the location of the Qgis program folder or switch to another user during the "PREPARE" phase. However, you may start QGIS several times during "PREPARE" phase, so you don't have to do all the prepapatory work in one session. <br><br>Do not proceed to the next step until you have your 'perfect' setup of QGIS running !!
 
@@ -82,7 +82,7 @@ The edits in "qgis-start.bat" and the use of "qgis-prepare.bat" means that 1) a 
 
 2. Ask the user to start QGIS by double-clicking on the file qgis-start.bat located in the "QGIS program folder"\bin directory.
 
-3. The "qgis-start.bat file will - at first run - finish the installation by automatically creating a copy of ".qgs_template" directory in the user directory, create a shortcut on the desktop and generate file associations between .qgs files and the new QGIS program. Finally, all file and directory references inside the  "qgis2.ini" file will be adapted to the new locations of QGIS program- and QGIS user-directory on the user's PC.
+3. The "qgis-start.bat file will - at first run - finish the installation by automatically creating a copy of ".qgis_template" directory in the user directory, create a shortcut on the desktop and generate file associations between .qgs files and the new QGIS program. Finally, all file and directory references inside the  "qgis2.ini" file will be adapted to the new locations of QGIS program- and QGIS user-directory on the user's PC.
 
 4. Subsequent calls of qgis-start.bat will perform an simple, ordinary startup of QGIS. <br>
 The installation and start functions described in sections 3 & 4 can be examined by studying the script "qgis-prepare.bat". All steps in this bat-file is commented in detail.
@@ -100,9 +100,10 @@ The version of the file "qgis-prepare.bat" which is available on GitHub is desig
 It is possible to use another location, just by editing a single setting in "qgis-prepare.bat".
 Find the lines:
 
-    
+   ```
     REM Path to user directory (with no trailing backslash) .. only used in RUN mode
     set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
+   ```
     
 
 and customize "%USERPROFILE%\\.qgis_214" to the new location. (%USERPROFILE% is an environment variable that points to the user's home directory)
@@ -133,7 +134,6 @@ to:
 REM Path to user directory (with no trailing backslash) .. only used in RUN mode
 set "QGIS_UDIR=M:\personal\.qgis_214"
 ```
-
 Prepare Qgis as described on a normal pc (not Citrix). After preparation and the last change to "qgis-start.bat",  copy the prepared Qgis program folder on the Citrix server - or servers, if it's a Citrix server farm.<br><br>
 The first time a user starts the Citrix - Qgis, it will create the use user environment and this environment will be placed in a location **not** on the Citrix server. The following startups of the Citrix - Qgis will be normal, because the user environment already exists **even** if the started Qgis is placed on another server in the Citrix server farm
 
