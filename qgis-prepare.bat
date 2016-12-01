@@ -1,3 +1,4 @@
+echo on
 chcp 1252
 
 REM ==================================================================
@@ -5,10 +6,10 @@ REM 2 parameters that can be changed by GIS administrator
 REM ==================================================================
 
 REM Final path to QGIS user directory (with no trailing backslash).. only used in RUN mode
-set "QGIS_UDIR=%USERPROFILE%\.qgis_214"
+set "QGIS_UDIR=%USERPROFILE%\.qgis_218"
 
 REM Text for the desktop shortcut. Change for new versions
-set "QGIS_TEXT=Start QGIS 2.14"
+set "QGIS_TEXT=Start Qgis Las Palmas"
 
 REM Full path of central update command. Use only during beta phase, obvious security problem. Set to "" if not used
 set "QGIS_NETCMD="
@@ -81,19 +82,31 @@ minised "s#%UO%#%UN%#g;s#%UO:/=\\\\%#%UN:/=\\\\%#g;s#%PO%#%PN%#g;s#%PO:/=\\\\%#%
 
 REM (You survived...)
 
-REM Create shortcut on desktop for user 
-REM If QGIS is installed using a msi-package, then remove or comment the next line. It will be superfluous, because the 
-REM msi package is supposed to have it own installation of the shortcut.
-nircmd shortcut """%OSGEO4W_ROOT%""\bin\qgis-start.bat" "~$folder.desktop$" "%QGIS_TEXT%" "" """%OSGEO4W_ROOT%""\icons\QGIS.ico" "0" "min" """%OSGEO4W_ROOT%""\bin" ""
+REM If you are packaging the installation in a .msi file, Yuo probably want to comment the next 6 lines
+REM The fille associations and icon associations would be handles by the .msi package...
 
-REM Create file associations for QGIS - Can be deleted if you don't want the association 
-ftype qgis-prj="%OSGEO4W_ROOT%"\bin\qgis-start.bat "%%1"%%*
-assoc .qpr=qgis-prj
+REM Create shortcut on desktop for user 
+nircmd shortcut """%OSGEO4W_ROOT%""\bin\qgis-start.bat" "~$folder.desktop$" "%QGIS_TEXT%" "" """%OSGEO4W_ROOT%""\icons\QGIS.ico" "0" "min" """%OSGEO4W_ROOT%""\bin" ""
+REM Create shortcut in the programs group for user 
+nircmd shortcut """%OSGEO4W_ROOT%""\bin\qgis-start.bat" "~$folder.programs$\Qgis Program" "%QGIS_TEXT%" "" """%OSGEO4W_ROOT%""\icons\QGIS.ico" "0" "min" """%OSGEO4W_ROOT%""\bin" ""
+
+REM Create file and icon associations 
+
+minised "s#x_BASE_x#%PN:/=\\\\%#g;" "%OSGEO4W_ROOT%\bin\qgis.reg.tmpl" > "%OSGEO4W_ROOT%\bin\qgis.reg"
+pause
+
+start/wait regedit -s "%OSGEO4W_ROOT%\bin\qgis.reg"
+pause
+
+assoc .qgs=QGIS Project
+assoc .qlr=QGIS Layer Definition
+assoc .qml=QGIS Layer Settings
+assoc .qpt=QGIS Composer Template
+pause
 
 :start_qgis
 
 REM Run the central update commmandfile if the variable is set to a location and the file exist.
-if not *%QGIS_NETCMD%==* if exist %QGIS_NETCMD% call %QGIS_NETCMD%
-
-REM  Exit and run QGIS in "RUN" mode
+if *%QGIS_NETCMD%==* exit /b
+if exist %QGIS_NETCMD% call %QGIS_NETCMD%
 exit /b
