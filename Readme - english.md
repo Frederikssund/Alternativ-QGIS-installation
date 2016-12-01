@@ -54,7 +54,7 @@ This operation is split in two phases:
 
 6. Save the edited file. The GitHub distribution contains an example of the edited file. However, you are advised not to use it directly, but only as a guide, as there may be small differences between different QGIS installations.
 
-7. Copy "qgis-prepare.bat" and "minised.exe" from Github distribution folder to the same folder as "qgis-start.bat".
+7. Copy "qgis-prepare.bat", "qgis.reg.tmpl" and "minised.exe" from Github distribution folder to the same folder as "qgis-start.bat".
 
 8. During the ordinary Qgis installation two dll - files is copied to directory "C:\\Windows\\System32". The files are  Microsoft basic support files that is used by Qgis. To ensure that the files are present in subsequent Qgis installations the files has to be copied from "C:\\Windows\\System32" to the Qgis program directory, subdirectory "\\bin" (ex. "C:\Program Files\QGIS 2.18\bin\")<br><br>
 The names of the two files is msvcp120.dll and msvcr120.dll, if the version of Qgis is 2.18. For earlier Qgis the names  **might** be  msvcp110.dll / msvcr110.dll or msvcp100.dll / msvcr100.dll.<br><br>NB! If a Qgis 32 bit version is prepared using aWindows 64 bit PC, the dll files has to be copied from directory "C:\\Windows\\SysWOW64" - **not** "C:\\Windows\\System32".

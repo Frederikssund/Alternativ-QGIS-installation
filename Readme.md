@@ -56,7 +56,7 @@ For at få QGIS til at skrive/læse sine opsætningsparametre fra en ini-fil i s
    (I den sidste linie tilføjes ```--configpath "%QGIS_UDIR%"``` umiddelbart før ```%*```)
 6. Gem den rettede fil. I GitHub distributionen er der et eksempel på den rettede fil. Du bør dog ikke bruge den direkte, men kun som en guide, da der kan være mindre forskelle mellem forskellige QGIS installationer.
 
-7. Kopier "qgis-prepare.bat" samt "minised.exe" fra github distributionsmappen til samme mappe som "qgis-start.bat".
+7. Kopier "qgis-prepare.bat", "qgis.reg.tmpl" samt "minised.exe" fra github distributionsmappen til samme mappe som "qgis-start.bat".
 
 8. Når Qgis installeres vha. den normale installation kopieres der 2 .dll filer til C:\\Windows\System32 mappen. Disse er Microsoft basis support filer, som er nødvendige for Qgis kan fungere. For at sikre, at disse filer efterfølgende også installeres sammen med de øvrige Qgis filer skal man kopiere de to filer fra C:\\Windows\\System32 til Qgis program mappen, undermappe \\bin, f.eks. "C:\Program Files\QGIS 2.18\bin\"<br><br>
 Navnene på de to filer er: msvcp120.dll hhv. msvcr120.dll, hvis Qgis er version 2.18. Ved tidligere versioner af Qgis kan navnene **evt.** være msvcp110.dll hhv. msvcr110.dll eller msvcp100.dll hhv. msvcr100.dll.<br><br>NB! Hvis en Qgis 32 bit udgave forberedes på en Windows 64 bt PC, skal dll filerne kopieres fra mappe C:\\Windows\\SysWOW64 i stedet for  C:\\Windows\\System32.
